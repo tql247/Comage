@@ -18,6 +18,7 @@ export type BottomTabParamList = {
 
 export type MainParamList = {
   MainScreen: undefined;
+  LogoTitle: undefined;
 };
 
 export type SearchParamList = {

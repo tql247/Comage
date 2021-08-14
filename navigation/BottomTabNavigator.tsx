@@ -6,6 +6,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SearchBar } from 'react-native-elements';
+
 import * as React from 'react';
 
 import Colors from '../constants/Colors';
@@ -15,6 +17,7 @@ import MainScreen from '../screens/MainScreen';
 import FollowScreen from '../screens/FollowScreen';
 import SearchScreen from '../screens/SearchScreen';
 import { BottomTabParamList, NotificationParamList, ProfileParamList, MainParamList, FollowParamList, SearchParamList } from '../types';
+import LogoTitle from '../components/LogoTitle';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -80,7 +83,7 @@ function MainNavigator() {
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: 'Comage', headerStyle: {height: 45} }}
+        options={{ headerTitle: () => <LogoTitle />, headerStyle: {height: 45} }}
       />
     </MainStack.Navigator>
   );
