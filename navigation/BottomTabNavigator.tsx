@@ -18,6 +18,7 @@ import FollowScreen from '../screens/FollowScreen';
 import SearchScreen from '../screens/SearchScreen';
 import { BottomTabParamList, NotificationParamList, ProfileParamList, MainParamList, FollowParamList, SearchParamList } from '../types';
 import LogoTitle from '../components/LogoTitle';
+import SearchBarHeader from '../components/SearchBarHeader';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -97,7 +98,7 @@ function SearchNavigator() {
       <SearchStack.Screen
         name="SearchScreen"
         component={SearchScreen}
-        options={{ headerTitle: 'Tab Two Title', headerStyle: {height: 45} }}
+        options={{ headerTitle: () => <SearchBarHeader />}}
       />
     </SearchStack.Navigator>
   );
