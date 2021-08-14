@@ -20,6 +20,7 @@ import { BottomTabParamList, NotificationParamList, ProfileParamList, MainParamL
 import LogoTitle from '../components/LogoTitle';
 import SearchBarHeader from '../components/SearchBarHeader';
 import {StyleSheet} from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import GradientHeaderTitle from "../components/GradientHeaderTitle";
 
 
@@ -83,15 +84,23 @@ const MainStack = createStackNavigator<MainParamList>();
 
 function MainNavigator() {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator
+        screenOptions={{
+            headerTintColor: 'white',
+            headerBackground: () =>
+                <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: 'tomato' },
+        }}
+    >
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: () => <GradientHeaderTitle />, headerStyle: styles.container }}
+        options={{ headerTitle: "Main", headerStyle: styles.container }}
       />
     </MainStack.Navigator>
   );
 }
+
 
 const SearchStack = createStackNavigator<SearchParamList>();
 
