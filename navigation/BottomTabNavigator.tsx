@@ -87,7 +87,7 @@ function MainNavigator() {
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: () => <LogoTitle />, headerStyle: styles.container }}
+        options={{ headerTitle: () => <GradientHeaderTitle />, headerStyle: styles.container }}
       />
     </MainStack.Navigator>
   );
