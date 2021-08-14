@@ -19,6 +19,9 @@ import SearchScreen from '../screens/SearchScreen';
 import { BottomTabParamList, NotificationParamList, ProfileParamList, MainParamList, FollowParamList, SearchParamList } from '../types';
 import LogoTitle from '../components/LogoTitle';
 import SearchBarHeader from '../components/SearchBarHeader';
+import {StyleSheet} from "react-native";
+import GradientHeaderTitle from "../components/GradientHeaderTitle";
+
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -84,7 +87,7 @@ function MainNavigator() {
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: () => <LogoTitle />, headerStyle: {height: 45} }}
+        options={{ headerTitle: () => <LogoTitle />, headerStyle: styles.container }}
       />
     </MainStack.Navigator>
   );
@@ -98,7 +101,7 @@ function SearchNavigator() {
       <SearchStack.Screen
         name="SearchScreen"
         component={SearchScreen}
-        options={{ headerTitle: () => <SearchBarHeader />}}
+        options={{ headerTitle: () => <SearchBarHeader />, headerStyle: styles.container}}
       />
     </SearchStack.Navigator>
   );
@@ -113,7 +116,7 @@ function FollowNavigator() {
       <FollowStack.Screen
         name="FollowScreen"
         component={FollowScreen}
-        options={{ headerTitle: 'Tab Three Title', headerStyle: {height: 45} }}
+        options={{ headerTitle: "Following", headerStyle: styles.container }}
       />
     </FollowStack.Navigator>
   );
@@ -129,7 +132,7 @@ function NotificationNavigator() {
       <NotificationStack.Screen
         name="NotificationScreen"
         component={ProfileScreen}
-        options={{ headerTitle: 'Notifications', headerStyle: {height: 45} }}
+        options={{ headerTitle: 'Notifications'}}
       />
     </NotificationStack.Navigator>
   );
@@ -144,8 +147,19 @@ function ProfileNavigator() {
       <ProfileStack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
-        options={{ headerTitle: 'Profile Title', headerStyle: {height: 45} }}
+        options={{  headerTitle: 'Profile Title', headerStyle: styles.container}}
       />
     </ProfileStack.Navigator>
   );
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        // backgroundColor: 'white',
+        // borderBottomWidth: 0,
+        // shadowColor: 'transparent', //no effect
+        // // borderTopColor: 'white',
+        // borderWidth: 0
+    }
+});
