@@ -91,6 +91,7 @@ function MainNavigator() {
             headerTintColor: 'white',
             headerBackground: () =>
                 <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: 'white' },
         }}
     >
       <MainStack.Screen
@@ -112,6 +113,7 @@ function SearchNavigator() {
             headerTintColor: 'white',
             headerBackground: () =>
                 <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: 'white' },
         }}
     >
       <SearchStack.Screen
