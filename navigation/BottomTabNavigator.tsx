@@ -6,6 +6,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import { SearchBar } from 'react-native-elements';
 
 import * as React from 'react';
@@ -32,7 +33,8 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Main"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+    >
       <BottomTab.Screen
         name="Main"
         component={MainNavigator}
@@ -89,7 +91,6 @@ function MainNavigator() {
             headerTintColor: 'white',
             headerBackground: () =>
                 <GradientHeaderTitle />,
-            headerStyle: { backgroundColor: 'tomato' },
         }}
     >
       <MainStack.Screen
@@ -106,7 +107,13 @@ const SearchStack = createStackNavigator<SearchParamList>();
 
 function SearchNavigator() {
   return (
-    <SearchStack.Navigator>
+    <SearchStack.Navigator
+        screenOptions={{
+            headerTintColor: 'white',
+            headerBackground: () =>
+                <GradientHeaderTitle />,
+        }}
+    >
       <SearchStack.Screen
         name="SearchScreen"
         component={SearchScreen}
