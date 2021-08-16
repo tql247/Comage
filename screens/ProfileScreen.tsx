@@ -1,15 +1,27 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import {SettingList} from "../components/SettingList";
+import {LogoutComponent} from "../components/LogoutComponent";
 
 export default function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Three</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ProfileScreen.tsx" />
+      <View style={[styles.centroid]}>
+        <Image
+            resizeMode="cover"
+            style={[{ width: 200, height: 200 }, styles.avatar]}
+            source={require('../assets/images/adminavatar.jpg')}
+        />
+      </View>
+      <View style={styles.settings}>
+          <SettingList />
+      </View>
+      <View style={styles.settings}>
+          <LogoutComponent />
+      </View>
     </View>
   );
 }
@@ -17,16 +29,36 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderWidth: 0,
+    borderColor: "transparent",
+    shadowColor: 'transparent',
+    backgroundColor: "#efefef"
+  },
+  centroid: {
+    width: '100%',
+    minWidth: '100%',
+    margin: 0,
+    padding: 0,
+    alignItems: "center"
+  },
+  cover: {
+    width: '100%',
+    minWidth: '100%',
+    margin: 0,
+    padding: 0,
+    alignItems: "center"
+  },
+  avatar: {
+    margin: 30,
+    borderRadius: 500,
+    borderWidth: 1,
+    borderColor: "#ccc"
+  },
+  settings: {
+    marginTop: 10,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });
