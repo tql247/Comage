@@ -36,35 +36,35 @@ export default function BottomTabNavigator() {
         name="Main"
         component={MainNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-flame-outline" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "ios-flame" : "ios-flame-outline"} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Search"
         component={SearchNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-search-outline" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "ios-search" : "ios-search-outline"} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Follow"
         component={FollowNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-heart-outline" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "ios-heart" : "ios-heart-outline"} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Notification"
         component={NotificationNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-notifications-outline" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "ios-notifications" : "ios-notifications-outline"} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Profile"
         component={ProfileNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person-outline" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "ios-person" : "ios-person-outline"} color={color} />,
         }}
       />
     </BottomTab.Navigator>
