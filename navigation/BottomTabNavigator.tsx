@@ -23,6 +23,7 @@ import SearchBarHeader from '../components/SearchBarHeader';
 import {StyleSheet} from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import GradientHeaderTitle from "../components/GradientHeaderTitle";
+import NotificationScreen from "../screens/NotificationScreen";
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -149,7 +150,7 @@ function NotificationNavigator() {
     <NotificationStack.Navigator>
       <NotificationStack.Screen
         name="NotificationScreen"
-        component={ProfileScreen}
+        component={NotificationScreen}
         options={{ headerTitle: 'Notifications'}}
       />
     </NotificationStack.Navigator>

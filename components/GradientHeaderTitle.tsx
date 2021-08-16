@@ -9,7 +9,7 @@ export default function GradientHeaderTitle() {
         //     source={require('../assets/images/header.png')}
         // />
         <LinearGradient
-            colors={['orange', 'transparent']}
+            colors={['orange', 'white']}
             start={{
                 x: 0,
                 y: 0
