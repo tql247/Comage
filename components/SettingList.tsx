@@ -37,10 +37,10 @@ export class SettingList extends Component {
                 scrollEnabled={scrollEnabled}
                 onContentSizeChange={this.onContentSizeChange}
             >
-                <View style={styles.container}>
+                <View style={styles.card}>
                     {
                         this.state.settings.map((item, i) => (
-                            <ListItem key={i} style={styles.card}>
+                            <ListItem key={i} style={styles.item}>
                                 <Icon name={item.icon} />
                                 <ListItem.Content>
                                     <ListItem.Title>{item.title}</ListItem.Title>
@@ -57,8 +57,6 @@ export class SettingList extends Component {
 
 const styles = StyleSheet.create({
     scrollView: {
-        flex: 1,
-        flexGrow: 1,
         borderWidth: 0,
         borderColor: "transparent",
         shadowColor: 'transparent',
@@ -66,14 +64,6 @@ const styles = StyleSheet.create({
         minWidth: '100%',
         margin: 0,
         padding: 0
-    },
-    container: {
-        justifyContent: 'center',
-        borderWidth: 0,
-        borderColor: "transparent",
-        shadowColor: 'transparent',
-        width: '100%',
-        minWidth: '100%',
     },
     card: {
         width: '100%',
@@ -83,5 +73,10 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderColor: "transparent",
         shadowColor: 'transparent',
-    }
+    },
+    item: {
+        marginTop: 1,
+        width: '100%',
+        minWidth: '100%'
+    },
 });

@@ -116,13 +116,6 @@ const styles = StyleSheet.create({
         shadowColor: 'transparent',
         flexGrow: 1,
     },
-    container: {
-        justifyContent: 'center',
-        borderWidth: 0,
-        borderColor: "transparent",
-        shadowColor: 'transparent',
-        flexGrow: 1,
-    },
     card: {
         width: '100%',
         minWidth: '100%',

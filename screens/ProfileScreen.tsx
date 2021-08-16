@@ -17,10 +17,12 @@ export default function ProfileScreen() {
         />
       </View>
       <View style={styles.settings}>
+        <View style={styles.settingsCombo}>
           <SettingList />
-      </View>
-      <View style={styles.settings}>
-          <LogoutComponent />
+          <View style={styles.settingsCombo}>
+            <LogoutComponent />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -55,10 +57,20 @@ const styles = StyleSheet.create({
     borderColor: "#ccc"
   },
   settings: {
-    marginTop: 10,
+    flexGrow: 1,
+    borderWidth: 0,
+    borderColor: "transparent",
+    shadowColor: 'transparent',
+    backgroundColor: "transparent",
+    marginTop: 10
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  settingsCombo: {
+    flexGrow: 1,
+    width: '100%',
+    minWidth: '100%',
+    borderWidth: 0,
+    borderColor: "transparent",
+    shadowColor: 'transparent',
+    backgroundColor: "transparent"
   },
 });
