@@ -1,26 +1,23 @@
 import * as React from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import {NotificationList} from "../components/NotificationList";
+import { View } from '../components/Themed';
 
 export default function NotificationScreen() {
 
   return (
-      <ScrollView
-          style={{ flex: 1 }}
-          contentContainerStyle={styles.container}
-          scrollEnabled={true}
-      >
+      <View style={styles.container}>
         <NotificationList/>
-      </ScrollView>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    height: '100%',
-    minHeight: '100%',
-    maxHeight: '100%',
+    flex: 1,
+    borderWidth: 0,
+    borderColor: "transparent",
+    shadowColor: 'transparent',
   },
   title: {
     fontSize: 20,

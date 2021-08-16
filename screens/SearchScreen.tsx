@@ -14,14 +14,14 @@ export default function SearchScreen() {
                 buttonStyle={styles.chip}
                 containerStyle={styles.chipContainer}
                 titleStyle={styles.chipTitle}
-                title="Goblin Slayer"
+                title="Soudouki tensei isekai"
                 type="outline"
             />
             <Chip
                 buttonStyle={styles.chip}
                 containerStyle={styles.chipContainer}
                 titleStyle={styles.chipTitle}
-                title="Soudouki tensei isekai"
+                title="Goblin Slayer"
                 type="outline"
             />
             <Chip
@@ -36,6 +36,20 @@ export default function SearchScreen() {
                 containerStyle={styles.chipContainer}
                 titleStyle={styles.chipTitle}
                 title="Material Peak"
+                type="outline"
+            />
+            <Chip
+                buttonStyle={styles.chip}
+                containerStyle={styles.chipContainer}
+                titleStyle={styles.chipTitle}
+                title="Nozomanu Fushi no Boukensha"
+                type="outline"
+            />
+            <Chip
+                buttonStyle={styles.chip}
+                containerStyle={styles.chipContainer}
+                titleStyle={styles.chipTitle}
+                title="Dungeon Meshi"
                 type="outline"
             />
         </View>

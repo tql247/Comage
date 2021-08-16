@@ -6,8 +6,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createNativeStackNavigator  } from '@react-navigation/native-stack';
-import { SearchBar } from 'react-native-elements';
 
 import * as React from 'react';
 
@@ -18,10 +16,8 @@ import MainScreen from '../screens/MainScreen';
 import FollowScreen from '../screens/FollowScreen';
 import SearchScreen from '../screens/SearchScreen';
 import { BottomTabParamList, NotificationParamList, ProfileParamList, MainParamList, FollowParamList, SearchParamList } from '../types';
-import LogoTitle from '../components/LogoTitle';
 import SearchBarHeader from '../components/SearchBarHeader';
 import {StyleSheet} from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
 import GradientHeaderTitle from "../components/GradientHeaderTitle";
 import NotificationScreen from "../screens/NotificationScreen";
 
@@ -92,13 +88,13 @@ function MainNavigator() {
             headerTintColor: 'white',
             headerBackground: () =>
                 <GradientHeaderTitle />,
-            headerStyle: { backgroundColor: 'white' },
+            headerStyle: { backgroundColor: '#feb47b' },
         }}
     >
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: "Main", headerStyle: styles.container }}
+        options={{ headerTitle: "Main", headerStyle: styles.container, headerTitleAlign: "center" }}
       />
     </MainStack.Navigator>
   );
@@ -131,11 +127,18 @@ const FollowStack = createStackNavigator<FollowParamList>();
 
 function FollowNavigator() {
   return (
-    <FollowStack.Navigator>
+    <FollowStack.Navigator
+        screenOptions={{
+            headerTintColor: 'white',
+            headerBackground: () =>
+                <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: '#feb47b' },
+        }}
+    >
       <FollowStack.Screen
         name="FollowScreen"
         component={FollowScreen}
-        options={{ headerTitle: "Following", headerStyle: styles.container }}
+        options={{ headerTitle: "Following", headerStyle: styles.container, headerTitleAlign: "center" }}
       />
     </FollowStack.Navigator>
   );
@@ -147,11 +150,18 @@ const NotificationStack = createStackNavigator<NotificationParamList>();
 
 function NotificationNavigator() {
   return (
-    <NotificationStack.Navigator>
+    <NotificationStack.Navigator
+        screenOptions={{
+            headerTintColor: 'white',
+            headerBackground: () =>
+                <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: '#feb47b' },
+        }}
+    >
       <NotificationStack.Screen
         name="NotificationScreen"
         component={NotificationScreen}
-        options={{ headerTitle: 'Notifications'}}
+        options={{ headerTitle: 'Notifications', headerTitleAlign: "center"}}
       />
     </NotificationStack.Navigator>
   );
@@ -162,11 +172,18 @@ const ProfileStack = createStackNavigator<ProfileParamList>();
 
 function ProfileNavigator() {
   return (
-    <ProfileStack.Navigator>
+    <ProfileStack.Navigator
+        screenOptions={{
+            headerTintColor: 'white',
+            headerBackground: () =>
+                <GradientHeaderTitle />,
+            headerStyle: { backgroundColor: '#feb47b' },
+        }}
+    >
       <ProfileStack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
-        options={{  headerTitle: 'Profile Title', headerStyle: styles.container}}
+        options={{  headerTitle: 'Profile Settings', headerTitleAlign: "center"}}
       />
     </ProfileStack.Navigator>
   );
@@ -175,10 +192,10 @@ function ProfileNavigator() {
 
 const styles = StyleSheet.create({
     container: {
-        // backgroundColor: 'white',
-        // borderBottomWidth: 0,
-        // shadowColor: 'transparent', //no effect
-        // // borderTopColor: 'white',
-        // borderWidth: 0
+        flex: 1,
+        alignSelf: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: 'white',
     }
 });
