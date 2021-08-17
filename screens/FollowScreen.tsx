@@ -2,14 +2,14 @@ import * as React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 
 import { Text, View } from '../components/Themed';
-import {FollowingList} from "../components/FollowingList";
+import {FollowingFlatList} from "../components/FollowingFlatList";
 
 const {width} = Dimensions.get("window");
 
 export default function FollowScreen() {
   return (
       <View style={styles.container}>
-        <FollowingList/>
+        <FollowingFlatList/>
       </View>
   );
 }
