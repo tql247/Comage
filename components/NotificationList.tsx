@@ -84,11 +84,11 @@ export class NotificationList extends Component {
                 scrollEnabled={scrollEnabled}
                 onContentSizeChange={this.onContentSizeChange}
             >
-                <Card containerStyle={styles.card}>
+                <Card containerStyle={styles.listContainer}>
                     {
                         this.state.users.map((u, i) => {
                             return (
-                                <View key={i} style={styles.notification}>
+                                <View key={i} style={styles.imageContainer}>
                                     <Image
                                         style={styles.image}
                                         resizeMode="cover"
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         shadowColor: 'transparent',
         flexGrow: 1,
     },
-    card: {
+    listContainer: {
         width: '100%',
         minWidth: '100%',
         margin: 0,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         shadowColor: 'transparent',
         flexGrow: 1,
     },
-    notification: {
+    imageContainer: {
         flexDirection: "row",
         width: '100%',
         minWidth: '100%'

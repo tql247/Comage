@@ -37,7 +37,7 @@ export class SettingList extends Component {
                 scrollEnabled={scrollEnabled}
                 onContentSizeChange={this.onContentSizeChange}
             >
-                <View style={styles.card}>
+                <View style={styles.listContainer}>
                     {
                         this.state.settings.map((item, i) => (
                             <ListItem key={i} style={styles.item}>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         margin: 0,
         padding: 0
     },
-    card: {
+    listContainer: {
         width: '100%',
         minWidth: '100%',
         margin: 0,

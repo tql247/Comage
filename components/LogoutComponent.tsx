@@ -37,7 +37,7 @@ export class LogoutComponent extends Component {
                 <View style={styles.container}>
                     {
                         this.state.settings.map((item, i) => (
-                            <ListItem key={i} style={[styles.card]}>
+                            <ListItem key={i} style={[styles.listContainer]}>
                                 <Icon name={item.icon} color={item.color} />
                                 <ListItem.Content>
                                     <ListItem.Title style={{color: item.color}}>{item.title}</ListItem.Title>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         width: '100%',
         minWidth: '100%',
     },
-    card: {
+    listContainer: {
         width: '100%',
         minWidth: '100%',
         margin: 0,
