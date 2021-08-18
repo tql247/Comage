@@ -58,14 +58,16 @@ const styles = StyleSheet.create({
   },
   settings: {
     flexGrow: 1,
+    flex: 1,
     borderWidth: 0,
     borderColor: "transparent",
     shadowColor: 'transparent',
     backgroundColor: "transparent",
-    marginTop: 10
   },
   settingsCombo: {
+    marginTop: 10,
     flexGrow: 1,
+    flex: 1,
     width: '100%',
     minWidth: '100%',
     borderWidth: 0,

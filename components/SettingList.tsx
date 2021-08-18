@@ -8,7 +8,6 @@ import {Text} from "./Themed";
 const {height} = Dimensions.get("window");
 
 export class SettingList extends Component {
-
     state = {
         screenHeight: 0,
         settings: [
@@ -19,6 +18,10 @@ export class SettingList extends Component {
             {
                 title: 'Saved',
                 icon: 'cloud-download'
+            },
+            {
+                title: 'About',
+                icon: 'info'
             },
         ]
     };
