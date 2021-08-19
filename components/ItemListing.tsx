@@ -135,13 +135,13 @@ export class ItemListing extends Component {
                     style={styles.scrollView}
                     data={this.state.users}
                     renderItem={({item}) => (
-                        <ListItem.Swipeable
-                            rightContent={
-                                <View style={styles.swipeIcon}>
-                                    <Icon onPress={() => (this.updateTest(!test))} name={test?"heart":"heart-outline"} size={30} type={"ionicon"} color={"#feb47b"} />
-                                </View>
-                            }
-                        >
+                        // <ListItem.Swipeable
+                        //     rightContent={
+                        //         <View style={styles.swipeIcon}>
+                        //             <Icon onPress={() => (this.updateTest(!test))} name={test?"heart":"heart-outline"} size={30} type={"ionicon"} color={"#feb47b"} />
+                        //         </View>
+                        //     }
+                        // >
                             <View style={styles.itemContainer}>
                                 <Image
                                     style={styles.image}
@@ -162,7 +162,7 @@ export class ItemListing extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </ListItem.Swipeable>
+                        // </ListItem.Swipeable>
                     )}
                 />
             </View>
@@ -204,17 +204,19 @@ const styles = StyleSheet.create({
         width: '100%',
         minWidth: '100%',
         backgroundColor: "white",
-        marginBottom: 1
+        marginBottom: 1,
+        padding: 10,
+        paddingBottom: 20
     },
     image: {
         height: width/3,
         width: width/4,
         overflow: "hidden",
         borderRadius: 5,
-        margin: 10
+        marginRight: 10
     },
     content: {
-        margin: 10,
+        marginLeft: 10,
         flex: 1
     },
     tagContainer: {
