@@ -20,6 +20,9 @@ import SearchBarHeader from '../components/SearchBarHeader';
 import {StyleSheet} from "react-native";
 import GradientHeaderTitle from "../components/GradientHeaderTitle";
 import NotificationScreen from "../screens/NotificationScreen";
+import ComicDetailScreen from "../screens/ComicDetailScreen";
+import LinkingConfiguration from './LinkingConfiguration';
+import ListItemScreen from "../screens/ListItemScreen";
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -95,6 +98,16 @@ function MainNavigator() {
         name="MainScreen"
         component={MainScreen}
         options={{ headerTitle: "Main", headerStyle: styles.container, headerTitleAlign: "center" }}
+      />
+      <MainStack.Screen
+        name="ComicDetailScreen"
+        component={ComicDetailScreen}
+        options={{ headerTitle: "Detail", headerStyle: styles.container, headerTitleAlign: "center" }}
+      />
+      <MainStack.Screen
+        name="ListItemScreen"
+        component={ListItemScreen}
+        options={{ headerTitle: "Listing", headerStyle: styles.container, headerTitleAlign: "center" }}
       />
     </MainStack.Navigator>
   );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Dimensions, FlatList, Image, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -7,10 +7,12 @@ import {TopCarousel} from "../components/TopCarousel";
 import {MainViewScroll} from "../components/MainViewScroll";
 import {NewChapterList} from "../components/NewChapterList";
 import {NewComic} from "../components/NewComic";
+import * as Linking from "expo-linking";
+import {GotMovieList} from "../components/GotMovieList";
 
 const {height} = Dimensions.get("window");
 
-export default function MainScreen() {
+export default function MainScreen({ navigation, props } : any) {
   return (
     <View style={styles.container}>
       <FlatList
@@ -20,12 +22,42 @@ export default function MainScreen() {
               <View style={styles.container}>
                   <MainViewScroll/>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>New Chapter</Text>
+
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen'))}
+                      >
+                          <Text style={styles.threadTitle}>Top trending</Text>
+                      </TouchableOpacity>
+                      <NewChapterList />
+                  </View>
+                  <View style={styles.threadContainer}>
+
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen'))}
+                      >
+                          <Text style={styles.threadTitle}>New Chapter</Text>
+                      </TouchableOpacity>
                       <NewChapterList />
                   </View>
                   <View style={styles.threadContainer}>
                       <Text style={styles.threadTitle}>New Comic</Text>
                       <NewComic />
+                  </View>
+                  <View style={styles.threadContainer}>
+                      <Text style={styles.threadTitle}>Weekly</Text>
+                      <NewComic />
+                  </View>
+                  <View style={styles.threadContainer}>
+                      <Text style={styles.threadTitle}>Monthly</Text>
+                      <NewComic />
+                  </View>
+                  <View style={styles.threadContainer}>
+                      <Text style={styles.threadTitle}>Complete</Text>
+                      <NewComic />
+                  </View>
+                  <View style={styles.threadContainer}>
+                      <Text style={styles.threadTitle}>Got Movie/Anime</Text>
+                      <GotMovieList {...props} navigation={navigation} />
                   </View>
               </View>
           ) }

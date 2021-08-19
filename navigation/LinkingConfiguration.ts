@@ -5,6 +5,7 @@
  */
 
 import * as Linking from 'expo-linking';
+import { useLinkTo } from '@react-navigation/native';
 
 export default {
   prefixes: [Linking.makeUrl('/')],
@@ -12,14 +13,15 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Main: {
             screens: {
-              TabOneScreen: 'one',
+              MainScreen: 'main',
+              ComicDetailScreen: 'main2',
             },
           },
-          TabTwo: {
+          Search: {
             screens: {
-              TabTwoScreen: 'two',
+              SearchScreen: 'two',
             },
           },
         },

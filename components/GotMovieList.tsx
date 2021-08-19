@@ -8,13 +8,11 @@ import {
     TouchableOpacity
 } from "react-native";
 
-const {height, width} = Dimensions.get("window");
-const numColumn = Math.floor(width/100) - 1;
-console.log('numColumn')
-console.log(width)
-console.log(numColumn)
+interface Props {
+    navigation: any
+}
 
-export class NewChapterList extends Component {
+export class GotMovieList extends Component<Props>  {
 
     state = {
         users: [
@@ -58,14 +56,10 @@ export class NewChapterList extends Component {
                 name: ' ヘビの首を噛',
                 coverImageURI: require("../assets/images/viewListItem5.png"),
                 backgroundColor: "transparent",
+                forwardScreen: '',
             },
         ]
     };
-
-    onContentSizeChange = (contentWidth: number, contentHeight: number) => {
-        this.setState({ screenHeight: contentHeight });
-    };
-
 
     render() {
         return (
@@ -77,6 +71,7 @@ export class NewChapterList extends Component {
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
+                                onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
                             >
                                 <Image
                                     style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
@@ -85,7 +80,7 @@ export class NewChapterList extends Component {
                                 />
                             </TouchableOpacity>
                         </View>
-                    ) }
+                    )}
                 />
             </View>
         );

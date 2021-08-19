@@ -12,7 +12,7 @@ export default function ProfileScreen() {
       <View style={[styles.centroid]}>
         <Image
             resizeMode="cover"
-            style={[{ width: 200, height: 200 }, styles.avatar]}
+            style={[{ width: 200, height: 200 }, styles.imageCover]}
             source={require('../assets/images/adminavatar.jpg')}
         />
       </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     padding: 0,
     alignItems: "center"
   },
-  avatar: {
+  imageCover: {
     margin: 30,
     borderRadius: 500,
     borderWidth: 1,
