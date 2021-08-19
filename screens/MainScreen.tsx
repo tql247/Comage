@@ -28,7 +28,7 @@ export default function MainScreen({ navigation, props } : any) {
                       >
                           <Text style={styles.threadTitle}>Top trending</Text>
                       </TouchableOpacity>
-                      <NewChapterList />
+                      <NewChapterList {...props} navigation={navigation} />
                   </View>
                   <View style={styles.threadContainer}>
 
@@ -37,7 +37,7 @@ export default function MainScreen({ navigation, props } : any) {
                       >
                           <Text style={styles.threadTitle}>New Chapter</Text>
                       </TouchableOpacity>
-                      <NewChapterList />
+                      <NewChapterList {...props} navigation={navigation} />
                   </View>
                   <View style={styles.threadContainer}>
                       <Text style={styles.threadTitle}>New Comic</Text>

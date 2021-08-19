@@ -7,6 +7,8 @@ import {
     FlatList,
     TouchableOpacity
 } from "react-native";
+import {Ionicons} from "@expo/vector-icons";
+import { ListItem, Icon } from 'react-native-elements'
 
 interface Props {
     navigation: any
@@ -53,13 +55,28 @@ export class GotMovieList extends Component<Props>  {
                 coverImageURI: 'https://i.pinimg.com/564x/01/5d/91/015d9121be5a1ce828d2acc40680f0fc.jpg'
             },
             {
-                name: ' ヘビの首を噛',
-                coverImageURI: require("../assets/images/viewListItem5.png"),
-                backgroundColor: "transparent",
+                name: 'add',
                 forwardScreen: '',
             },
         ]
     };
+
+
+    renderImage(item: any) {
+        if (item.name === "add")
+            return (
+                <View style={styles.image}>
+                    <Icon name={"chevron-forward-circle"} size={50} type={"ionicon"} color={"#feb47b"} />
+                </View>
+            )
+        return (
+            <Image
+                style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
+                resizeMode="cover"
+                source={ { uri: item.coverImageURI }}
+            />
+        )
+    }
 
     render() {
         return (
@@ -73,11 +90,7 @@ export class GotMovieList extends Component<Props>  {
                             <TouchableOpacity
                                 onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
                             >
-                                <Image
-                                    style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
-                                    resizeMode="cover"
-                                    source={{ uri: item.coverImageURI }}
-                                />
+                                {this.renderImage(item)}
                             </TouchableOpacity>
                         </View>
                     )}
@@ -111,7 +124,10 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         borderWidth: 2,
         borderColor: "#feb47b",
+        color: "#feb47b",
         overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center"
     },
     name: {
         fontSize: 17,

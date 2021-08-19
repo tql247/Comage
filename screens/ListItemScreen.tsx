@@ -7,7 +7,7 @@ import {TopCarousel} from "../components/TopCarousel";
 import {MainViewScroll} from "../components/MainViewScroll";
 import {NewChapterList} from "../components/NewChapterList";
 import {NewComic} from "../components/NewComic";
-import {ListItem} from "../components/ListItem";
+import {ItemListing} from "../components/ItemListing";
 
 const {height} = Dimensions.get("window");
 
@@ -19,7 +19,7 @@ export default function ListItemScreen() {
                 numColumns={1}
                 renderItem={({item}) => (
                     <View style={styles.container}>
-                        <ListItem/>
+                        <ItemListing/>
                     </View>
                 ) }
             />

@@ -84,7 +84,7 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const MainStack = createStackNavigator<MainParamList>();
 
-function MainNavigator() {
+function MainNavigator({navigation} : any) {
   return (
     <MainStack.Navigator
         screenOptions={{
@@ -102,12 +102,15 @@ function MainNavigator() {
       <MainStack.Screen
         name="ComicDetailScreen"
         component={ComicDetailScreen}
-        options={{ headerTitle: "Detail", headerStyle: styles.container, headerTitleAlign: "center" }}
+        options={{ headerTitle: "Detail", headerStyle: styles.container, headerTitleAlign: "center", headerBackTitleVisible: false }}
       />
       <MainStack.Screen
         name="ListItemScreen"
         component={ListItemScreen}
-        options={{ headerTitle: "Listing", headerStyle: styles.container, headerTitleAlign: "center" }}
+        options={{ headerTitle: "Listing", headerStyle: styles.container, headerTitleAlign: "center",
+            // headerLeft: () => (<Ionicons size={30} name={"ios-arrow-back"} onPress={ () => { navigation.goBack()}} />),
+            headerBackTitleVisible: false
+        }}
       />
     </MainStack.Navigator>
   );

@@ -7,14 +7,14 @@ import {
     FlatList,
     TouchableOpacity
 } from "react-native";
+import {Ionicons} from "@expo/vector-icons";
+import { ListItem, Icon } from 'react-native-elements'
 
-const {height, width} = Dimensions.get("window");
-const numColumn = Math.floor(width/100) - 1;
-console.log('numColumn')
-console.log(width)
-console.log(numColumn)
+interface Props {
+    navigation: any
+}
 
-export class NewChapterList extends Component {
+export class NewChapterList extends Component<Props>  {
 
     state = {
         users: [
@@ -55,17 +55,28 @@ export class NewChapterList extends Component {
                 coverImageURI: 'https://i.pinimg.com/564x/01/5d/91/015d9121be5a1ce828d2acc40680f0fc.jpg'
             },
             {
-                name: ' ヘビの首を噛',
-                coverImageURI: require("../assets/images/viewListItem5.png"),
-                backgroundColor: "transparent",
+                name: 'add',
+                forwardScreen: '',
             },
         ]
     };
 
-    onContentSizeChange = (contentWidth: number, contentHeight: number) => {
-        this.setState({ screenHeight: contentHeight });
-    };
 
+    renderImage(item: any) {
+        if (item.name === "add")
+            return (
+                <View style={styles.image}>
+                    <Icon name={"chevron-forward-circle"} size={50} type={"ionicon"} color={"#feb47b"} />
+                </View>
+            )
+        return (
+            <Image
+                style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
+                resizeMode="cover"
+                source={ { uri: item.coverImageURI }}
+            />
+        )
+    }
 
     render() {
         return (
@@ -77,15 +88,12 @@ export class NewChapterList extends Component {
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
+                                onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
                             >
-                                <Image
-                                    style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
-                                    resizeMode="cover"
-                                    source={{ uri: item.coverImageURI }}
-                                />
+                                {this.renderImage(item)}
                             </TouchableOpacity>
                         </View>
-                    ) }
+                    )}
                 />
             </View>
         );
@@ -116,7 +124,10 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         borderWidth: 2,
         borderColor: "#feb47b",
+        color: "#feb47b",
         overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center"
     },
     name: {
         fontSize: 17,
