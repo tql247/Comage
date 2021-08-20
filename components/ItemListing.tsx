@@ -18,7 +18,7 @@ export class ItemListing extends Component<Props> {
         users: [
             {
                 title: 'Release That Witch',
-                subtitle: '放开那个女巫',
+                subtitle: 'A male engineer transmigrated into another world, and became a prince. This place strikingly resembles the Middle Ages of Europe, but at the same time, it seems kind of different? Witches truly exists, and they even possess magic powers! Magic powers are productive forces! Save the witches, liberate the productive forces! Open map, fight demons, break conspiracies, climb up the science and technology tree, and open the path of hardcore ‘farming’!',
                 imageCover: 'https://avt.mkklcdnv6temp.com/47/i/17-1583496971.jpg',
                 lastUpdate: "Aug 18,2021 - 21:30 PM",
                 isFollowing: false,
@@ -32,7 +32,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Isekai Yurutto Survival Seikatsu: Gakkou no Minna to Isekai no Mujintou ni Tenishitakedo Ore Dake Rakushou desu',
-                subtitle: '異世界ゆるっとサバイバル生活 ～学校の皆と異世界の無人島に転移したけど俺だけ楽勝です～',
+                subtitle: 'I’m Shinomiya Hokage, a 3rd-year high-school boy who dreams of a survival life. One day, everyone in my school transferred to a mysterious island in a parallel world. I woke up in an unknown cave and I started moving on my own. Then, I met up with some of my classmates. My knowledge and tools in survival shines through. I was a plain guy in school but I’m the leader in this world.',
                 imageCover: 'https://avt.mkklcdnv6temp.com/41/a/22-1606497907.jpg',
                 lastUpdate: "Aug 19,2021 - 12:54 AM",
                 isFollowing: true,
@@ -42,7 +42,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Soredemo Ayumu wa Yosetekuru',
-                subtitle: 'それでも歩は寄せてくる',
+                subtitle: 'Soredemo Ayumu wa Yosetekuru summary is updating. Come visit MangaNato.com sometime to read the latest chapter of Soredemo Ayumu wa Yosetekuru. If you have any question about this manga, Please don\'t hesitate to contact us or translate team. Hope you enjoy it.',
                 imageCover: 'https://avt.mkklcdnv6temp.com/3/j/18-1583497210.jpg',
                 lastUpdate: "Aug 18,2021 - 15:32 AM",
                 isFollowing: false,
@@ -52,7 +52,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Ichioku-Nen Button O Renda Shita Ore Wa, Kizuitara Saikyou Ni Natteita',
-                subtitle: 'ApretÉ El BotÓN Durante Un MillÓN De AÑOs Y Antes De Darme Cuenta, Fui El MÁS Fuerte. ; I Hit The Button For A Million Years And Before I Knew It, I Was The Strongest. ; Ichioku-Nen Button O Renda Shita Ore Wa, Kizuitara Saikyou Ni Natteita~ ; Rakudai Kenshi No Gakuin Musou~ ; 億年ボタンを連打した俺は、気付いたら最強になっていた ～落第剣士の学院無双～',
+                subtitle: 'Allen is a boy who is despised as a failed swordsman. One day, desperate for a duel with an elite swordsman who bets on leaving Kenjutsu Academy, a mysterious hermit asks him if he will press the "100 million year button". Can the mysterious object really help him train for 100 million years?',
                 imageCover: 'https://avt.mkklcdnv6temp.com/12/a/21-1589272261.jpg',
                 lastUpdate: "Aug 19,2021 - 16:54 PM",
                 isFollowing: false,
@@ -62,7 +62,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Martial Peak',
-                subtitle: 'MP, 武炼巅峰',
+                subtitle: 'The journey to the martial peak is a lonely, solitary and long one.In the face of adversity,you must survive and remain unyielding.Only then can you break through and and continue on your journey to become the strongest. Sky Tower tests its disciples in the harshest ways to prepare them for this journey.One day the lowly sweeper Yang Kai managed to obtain a black book, setting him on the road to the peak of the martials world.',
                 imageCover: 'https://avt.mkklcdnv6temp.com/20/b/16-1583494192.jpg',
                 lastUpdate: "Aug 19,2021 - 02:24 AM",
                 isFollowing: false,
@@ -72,7 +72,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Urara Meirochou',
-                subtitle: 'うらら迷路帖 ; Urara 迷路帖',
+                subtitle: 'Meiro-chou is a town where all-female diviners (uranaishi) live and where girls from all over the country yearn to become the top diviner — Urara. Today, a solitary girl named Chiya enters the town\'s gates. However, she has another purpose coming here, besides becoming the Urara. Chiya\'s days as an apprentice diviner begin as she meets three friends — the earnest Kon, Koume who is a fan of Western culture, and the shy Nono.',
                 imageCover: 'https://avt.mkklcdnv6temp.com/10/e/15-1583491828.jpg',
                 lastUpdate: "Aug 19,2021 - 01:26 AM",
                 isFollowing: false,
@@ -92,7 +92,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Daiya No A - Act Ii',
-                subtitle: 'ダイヤのA actII (Japanese); Daiya no Ace- Act II ; Diamond no Ace - Act II (English); Diamond no Ace 2',
+                subtitle: 'A normal office worker, Toru Minasuki, was swallowed up by a dimensional fissure and reincarnated into a different world. Upon reincarnation, Toru was given a [skill board] by God. Make the most of it to acquire all the necessary skills! Even though he is an "inferior person," he\'ll make his way to the top!',
                 imageCover: 'https://avt.mkklcdnv6temp.com/50/k/13-1583489698.jpg',
                 lastUpdate: "Aug 19,2021 - 16:54 PM",
                 isFollowing: false,
@@ -102,7 +102,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Ranger Reject',
-                subtitle: 'Sentai Daishikkaku ; Боевой отряд «Полный Провал» ; Оперативный отряд "Daishikkaku" ; 戦隊大失格',
+                subtitle: 'Thirteen years ago, suddenly the Villainous Army of evil appeared in their gigantic floating castle 10000 meters in the sky to invade Earth! The villainous army have reviving capabilities that make them immortal, making them a serious threat to humanity. To protect us against these invaders, the Divine Dragon Rangers, the Dragon Keepers, wield their miraculous powers and their weapons, Divine Tools, and continuously fight for our safety! The assault of the Villainous Army! The vigilance of the Dragon Keepers! Will they succeed in their conquest…? Find out in the action-packed superhero series of a lifetime!',
                 imageCover: 'https://avt.mkklcdnv6temp.com/26/h/23-1613533484.jpg',
                 lastUpdate: "Aug 19,2021 - 01:26 AM",
                 isFollowing: false,
@@ -112,7 +112,7 @@ export class ItemListing extends Component<Props> {
             },
             {
                 title: 'Blue Period',
-                subtitle: 'ブルーピリオド',
+                subtitle: 'In his second to last year of high school, the dispassionate but studious, Yataro Yaguchi finally finds a calling in art. With no prior art experience, he decides to work towards to applying to an art university. A decision with potentially disastrous results.',
                 imageCover: 'https://avt.mkklcdnv6temp.com/45/s/17-1583496913.jpg',
                 lastUpdate: "Aug 19,2021 - 01:26 AM",
                 isFollowing: false,

@@ -23,6 +23,7 @@ import NotificationScreen from "../screens/NotificationScreen";
 import ComicDetailScreen from "../screens/ComicDetailScreen";
 import LinkingConfiguration from './LinkingConfiguration';
 import ListItemScreen from "../screens/ListItemScreen";
+import { ListItem, Icon } from 'react-native-elements';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -107,7 +108,7 @@ function MainNavigator({navigation} : any) {
       <MainStack.Screen
         name="ListItemScreen"
         component={ListItemScreen}
-        options={{ headerTitle: "Listing", headerStyle: styles.container, headerTitleAlign: "center",
+        options={{  headerTitle: "Listing", headerStyle: styles.container, headerTitleAlign: "center",
             // headerLeft: () => (<Ionicons size={30} name={"ios-arrow-back"} onPress={ () => { navigation.goBack()}} />),
             headerBackTitleVisible: false
         }}

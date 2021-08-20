@@ -11,7 +11,8 @@ import {Ionicons} from "@expo/vector-icons";
 import { ListItem, Icon } from 'react-native-elements'
 
 interface Props {
-    navigation: any
+    navigation: any,
+    subject: any
 }
 
 export class NewChapterList extends Component<Props>  {

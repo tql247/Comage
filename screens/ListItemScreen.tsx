@@ -1,17 +1,14 @@
 import * as React from 'react';
-import {Dimensions, FlatList, Image, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet} from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import {TopCarousel} from "../components/TopCarousel";
-import {MainViewScroll} from "../components/MainViewScroll";
-import {NewChapterList} from "../components/NewChapterList";
-import {NewComic} from "../components/NewComic";
+import { View } from '../components/Themed';
 import {ItemListing} from "../components/ItemListing";
 
 const {height} = Dimensions.get("window");
 
-export default function ListItemScreen({props, navigation} : any) {
+export default function ListItemScreen({props, route, navigation} : any) {
+    navigation.setOptions({ headerTitle: route.params.subject })
+
     return (
         <View style={styles.container}>
             <FlatList

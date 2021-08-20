@@ -7,8 +7,7 @@ import {
     FlatList,
     TouchableOpacity
 } from "react-native";
-import {Ionicons} from "@expo/vector-icons";
-import { ListItem, Icon } from 'react-native-elements'
+import { ListItem, Icon } from 'react-native-elements';
 import {Text} from "./Themed";
 
 interface Props {
@@ -169,7 +168,7 @@ export class GotMovieList extends Component<Props>  {
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
-                                onPress={() => (this.props.navigation.navigate(item.forwardScreen || "ComicDetailScreen"))}
+                                onPress={() => (this.props.navigation.navigate(item.forwardScreen || "ComicDetailScreen", {subject: "Got Movie/Anime"}))}
                             >
                                 {this.renderImage(item)}
                             </TouchableOpacity>

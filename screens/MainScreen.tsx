@@ -22,41 +22,59 @@ export default function MainScreen({ navigation, props } : any) {
               <View style={styles.container}>
                   <MainViewScroll/>
                   <View style={styles.threadContainer}>
-
                       <TouchableOpacity
-                          onPress={() => (navigation.navigate('ListItemScreen'))}
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Top Trending'}))}
                       >
-                          <Text style={styles.threadTitle}>Top trending</Text>
+                          <Text style={styles.threadTitle}>Top Trending</Text>
                       </TouchableOpacity>
-                      <NewChapterList {...props} navigation={navigation} />
+                      <NewChapterList {...props} navigation={navigation} subject={"Top Trending"} />
                   </View>
                   <View style={styles.threadContainer}>
-
                       <TouchableOpacity
-                          onPress={() => (navigation.navigate('ListItemScreen'))}
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'New Chapter'}))}
                       >
                           <Text style={styles.threadTitle}>New Chapter</Text>
                       </TouchableOpacity>
                       <NewChapterList {...props} navigation={navigation} />
                   </View>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>New Comic</Text>
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'New Comic'}))}
+                      >
+                        <Text style={styles.threadTitle}>New Comic</Text>
+                      </TouchableOpacity>
                       <NewComic />
                   </View>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>Weekly</Text>
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Weekly'}))}
+                      >
+                        <Text style={styles.threadTitle}>Weekly</Text>
+                      </TouchableOpacity>
                       <NewComic />
                   </View>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>Monthly</Text>
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Monthly'}))}
+                      >
+                        <Text style={styles.threadTitle}>Monthly</Text>
+                      </TouchableOpacity>
                       <NewComic />
                   </View>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>Complete</Text>
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Complete'}))}
+                      >
+                        <Text style={styles.threadTitle}>Complete</Text>
+                      </TouchableOpacity>
                       <NewComic />
                   </View>
                   <View style={styles.threadContainer}>
-                      <Text style={styles.threadTitle}>Got Movie/Anime</Text>
+                      <TouchableOpacity
+                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Got Movie/Anime'}))}
+                      >
+                        <Text style={styles.threadTitle}>Got Movie/Anime</Text>
+                      </TouchableOpacity>
                       <GotMovieList {...props} navigation={navigation} />
                   </View>
               </View>
