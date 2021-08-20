@@ -11,7 +11,7 @@ import {ItemListing} from "../components/ItemListing";
 
 const {height} = Dimensions.get("window");
 
-export default function ListItemScreen() {
+export default function ListItemScreen({props, navigation} : any) {
     return (
         <View style={styles.container}>
             <FlatList
@@ -19,7 +19,7 @@ export default function ListItemScreen() {
                 numColumns={1}
                 renderItem={({item}) => (
                     <View style={styles.container}>
-                        <ItemListing/>
+                        <ItemListing {...props} navigation={navigation}/>
                     </View>
                 ) }
             />

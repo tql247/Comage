@@ -9,35 +9,35 @@ export class NewComic extends Component {
     state = {
         users: [
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/f6/5d/0e/f65d0e54480a0592d14367d39c1b0a47.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/f0/8e/3f/f08e3fa4272e5c193fa5623cc9ea86e0.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/36/5b/c4/365bc4e62d67ba378813b2a0ebd34aae.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/16/28/10/16281022f619c71db9f3cb4025f2e746.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/a1/63/78/a16378585fdcde8de8a16c0400fb99cd.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/9b/8b/fd/9b8bfdd0a63a29329e3c88d4083b9b3e.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/d3/62/4c/d3624c615d53be6c4c3f77caee1b02a5.jpg'
             },
             {
-                name: ' ヘビの首を噛',
+                title: ' ヘビの首を噛',
                 coverImageURI: 'https://i.pinimg.com/564x/cc/63/2c/cc632c0cec998a541b9949b007ecfde4.jpg'
             },
         ]
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#feb47b",
         overflow: "hidden",
     },
-    name: {
+    title: {
         fontSize: 17,
         fontWeight: 'bold',
     },

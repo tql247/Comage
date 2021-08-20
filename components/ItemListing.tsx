@@ -6,7 +6,11 @@ import { ListItem, Avatar, Icon, Button } from 'react-native-elements';
 const {width} = Dimensions.get("window");
 const randomColor = require('randomcolor');
 
-export class ItemListing extends Component {
+interface Props {
+    navigation: any
+}
+
+export class ItemListing extends Component<Props> {
 
     state = {
         screenHeight: 0,
@@ -143,13 +147,21 @@ export class ItemListing extends Component {
                         //     }
                         // >
                             <View style={styles.itemContainer}>
+                                <TouchableOpacity
+                                    onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
+                                >
                                 <Image
                                     style={styles.image}
                                     resizeMode="cover"
                                     source={{ uri: item.imageCover }}
                                 />
+                                </TouchableOpacity>
                                 <View style={styles.content}>
-                                    <Text style={styles.title}>{item.title}</Text>
+                                    <TouchableOpacity
+                                        onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
+                                    >
+                                        <Text style={styles.title}>{item.title}</Text>
+                                    </TouchableOpacity>
                                     <Text style={styles.info}>Last update {item.lastUpdate}</Text>
                                     <Text style={styles.subtitle}>{item.subtitle}</Text>
                                     <View style={styles.separator}></View>
@@ -233,7 +245,7 @@ const styles = StyleSheet.create({
     info: {
         fontSize: 13,
         fontStyle: "italic",
-        color: "#ff7e5f",
+        color: "#ccc",
         marginBottom: 7
     },
     title: {
