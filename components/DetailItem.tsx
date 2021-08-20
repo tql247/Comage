@@ -69,7 +69,6 @@ export class DetailItem extends Component<Props> {
                                 source={{ uri: this.state.item.imageCover }}
                             />
                         </View>
-                        <View style={styles.separator}></View>
                         <View>
                             <Text style={styles.description}>
                                 {this.state.item.description}
@@ -169,35 +168,32 @@ const styles = StyleSheet.create({
     socialDOM: {
         color: "#666666",
         fontSize: 15,
-        margin: 10,
+        marginVertical: 15,
+        marginHorizontal: 10,
+        justifyContent: "space-around",
         flexDirection: "row",
     },
     follower: {
-        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"
     },
     rating: {
-        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"
     },
     viewer: {
-        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"
     },
     commenter: {
-        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"
     },
     share: {
-        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"

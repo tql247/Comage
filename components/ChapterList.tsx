@@ -188,7 +188,7 @@ export class ChapterList extends Component {
                 {this.state.item.map((item) => (
                     <View style={styles.chapterContainer}>
                         <Text style={styles.chapterContainer}>
-                            Chapter {item.chapIndexer}: {item.chapName}
+                            Chapter {item.chapIndexer}: {item.chapName} - <Text style={{color: "#666666", fontStyle: "italic"}}>{item.updatedAt}</Text>
                         </Text>
                     </View>
                 ))}
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
     chapterContainer: {
         flex: 1,
         flexWrap: "wrap",
-        fontSize: 15
+        fontSize: 15,
+        paddingVertical: 3
     },
 });

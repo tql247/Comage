@@ -36,8 +36,8 @@ export class FootItemDetail extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Tab value={this.state.indexTab} onChange={(value) => this.setState({indexTab: value})}>
-                    <Tab.Item title="chapter" />
-                    <Tab.Item title="comment" />
+                    <Tab.Item style={styles.item} titleStyle={{fontSize: 15, textTransform: "none"}} title="Chapters" />
+                    <Tab.Item style={styles.item} titleStyle={{fontSize: 15, textTransform: "none"}} title="Comments" />
                 </Tab>
 
                 <TabView value={this.state.indexTab} >
@@ -59,4 +59,7 @@ const styles = StyleSheet.create({
         borderColor: "transparent",
         shadowColor: 'transparent',
     },
+    item: {
+        height: 45, alignItems: "center", justifyContent: "center"
+    }
 });
