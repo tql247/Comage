@@ -97,7 +97,7 @@ export class DetailItem extends Component<Props> {
                             </View>
                         </View>
                         <View >
-                            <FootItemDetail  {...this.props} />
+                            <FootItemDetail  {...this.props} navigation={this.props.navigation} />
                         </View>
                     </View>
                 ) }

@@ -8,6 +8,7 @@ const {width} = Dimensions.get("window");
 const randomColor = require('randomcolor');
 
 interface Props {
+    navigation: any
 }
 
 export class FootItemDetail extends Component<Props> {
@@ -42,7 +43,7 @@ export class FootItemDetail extends Component<Props> {
 
                 <TabView value={this.state.indexTab} >
                     <TabView.Item style={{ }}>
-                        <ChapterList />
+                        <ChapterList {...this.props} navigation={this.props.navigation} />
                     </TabView.Item>
                     <TabView.Item style={{ width: '100%' }}>
                         <Text>comment</Text>

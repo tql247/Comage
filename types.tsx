@@ -1,4 +1,5 @@
 import ListItemScreen from "./screens/ListItemScreen";
+import ReadingScreen from "./screens/ReadingScreen";
 
 /**
  * Learn more about using TypeScript with React Navigation:
@@ -8,6 +9,7 @@ import ListItemScreen from "./screens/ListItemScreen";
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
+  ReadingScreen: undefined;
 };
 
 export type TabStackParamList = {
@@ -26,6 +28,7 @@ export type MainParamList = {
   MainScreen: undefined;
   ComicDetailScreen: undefined;
   ListItemScreen: undefined;
+  ReadingScreen: undefined;
 };
 
 export type SearchParamList = {

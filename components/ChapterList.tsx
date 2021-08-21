@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList} from "react-native";
+import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
 import {Text} from "./Themed";
 
 
@@ -9,7 +9,11 @@ console.log('numColumn')
 console.log(width)
 console.log(numColumn)
 
-export class ChapterList extends Component {
+interface Props {
+    navigation: any
+}
+
+export class ChapterList extends Component<Props> {
 
     state = {
         screenHeight: 0,
@@ -187,9 +191,13 @@ export class ChapterList extends Component {
             <View style={{ margin: 10, flex: 1}}>
                 {this.state.item.map((item) => (
                     <View style={styles.chapterContainer}>
-                        <Text style={styles.chapterContainer}>
-                            Chapter {item.chapIndexer}: {item.chapName} - <Text style={{color: "#666666", fontStyle: "italic"}}>{item.updatedAt}</Text>
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => (this.props.navigation.navigate("ReadingScreen"))}
+                        >
+                            <Text style={styles.chapterContainer}>
+                                Chapter {item.chapIndexer}: {item.chapName} - <Text style={{color: "#666666", fontStyle: "italic"}}>{item.updatedAt}</Text>
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 ))}
             </View>
