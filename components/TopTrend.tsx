@@ -206,16 +206,6 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
     },
     imgCover: {
-        shadowColor: "rgb(160,160,160)",
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
-        shadowOpacity: 1,
-        shadowRadius: 1.00,
-
-        elevation: 1,
-
         flexGrow: 1,
         maxHeight: 75,
         maxWidth: 75,
@@ -226,6 +216,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     image: {
+        borderWidth: 0.5,
+        borderColor: "rgba(204,204,204,0.5)",
         maxHeight: 75,
         maxWidth: 75,
         minHeight: 75,

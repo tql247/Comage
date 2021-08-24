@@ -98,7 +98,7 @@ export class NewChapterList extends Component<Props>  {
         itemIndex++;
 
         return (
-            <View style={{backgroundColor: itemIndex%2===0?"rgba(225,225,225,0.5)":"transparent", padding: 5}}>
+            <View style={{backgroundColor: itemIndex%2===0?"rgba(225,225,225,0.45)":"transparent", padding: 5}}>
                 <Text style={styles.title}>
                     {name.slice(0, 50) + (name.length>50?"...":"")}
                 </Text>
