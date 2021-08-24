@@ -22,7 +22,7 @@ export class ListTag extends Component {
     render() {
 
         return (
-            <View style={[{flex: 1, height: "100%", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between"}]}>
+            <View style={[{flex: 1, height: "100%", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", marginBottom: 3}]}>
                 {this.state.tags.map((item) => (
                     <Text style={ [styles.tag, { color: randomColor()}]}>#{item}</Text>
                 ))}

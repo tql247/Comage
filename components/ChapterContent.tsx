@@ -3,7 +3,7 @@ import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpac
 import {Text} from "./Themed";
 
 const {height, width} = Dimensions.get("window");
-const imageWidth = width - 20;
+const imageWidth = width - 5;
 
 export class ChapterContent extends Component {
 

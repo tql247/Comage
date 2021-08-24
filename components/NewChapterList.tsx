@@ -19,116 +19,107 @@ export class NewChapterList extends Component<Props>  {
     state = {
         users: [
             {
-                title: '',
+                title: 'Comage',
                 newChapter: 'Chap 32: Release That Witch',
-                imageCover: 'https://avt.mkklcdnv6temp.com/47/i/17-1583496971.jpg',
-                lastUpdate: "Aug 18,2021 - 21:30 PM",
+                lastUpdate: "Just now",
             },
             {
-                title: '',
-                newChapter: 'chap 12: Gakkou no Minna to Isekai no Mujintou',
-                imageCover: 'https://avt.mkklcdnv6temp.com/41/a/22-1606497907.jpg',
-                lastUpdate: "Aug 19,2021 - 12:54 AM",
+                title: 'Grand blue',
+                newChapter: 'Chap 12: Gakkou no Minna to Isekai no Mujintou',
+                lastUpdate: "30 mins ago",
                 isFollowing: true,
                 tag: [
                     "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Harem" ,"Psychological" , "Romance"
                 ]
             },
             {
-                title: '',
+                title: 'Soudouki tensei isekai',
                 newChapter: 'Chap 111: Soredemo Ayumu wa Yosetekuru',
-                imageCover: 'https://avt.mkklcdnv6temp.com/3/j/18-1583497210.jpg',
-                lastUpdate: "Aug 18,2021 - 15:32 AM",
+                lastUpdate: "1 hours ago",
             },
             {
-                title: '',
+                title: 'Konosuba',
                 newChapter: 'Chap 45: ApretÉ El BotÓN Durante Un MillÓN new It, I Was The Strongest',
-                imageCover: 'https://avt.mkklcdnv6temp.com/12/a/21-1589272261.jpg',
-                lastUpdate: "Aug 19,2021 - 16:54 PM",
+                lastUpdate: "1 hours ago",
             },
             {
-                title: '',
+                title: 'Overlord',
                 newChapter: 'Chap 90: MP, 武炼巅峰',
-                imageCover: 'https://avt.mkklcdnv6temp.com/20/b/16-1583494192.jpg',
-                lastUpdate: "Aug 19,2021 - 02:24 AM",
+                lastUpdate: "3 hours ago",
                 isFollowing: false,
                 tag: [
                     "Action" , "Adventure" , "Fantasy" , "Historical" , "Martial arts"
                 ]
             },
             {
-                title: '',
+                title: 'Goblin Slayer',
                 newChapter: 'Chap 78: うらら迷路帖 ; Urara 迷路帖',
-                imageCover: 'https://avt.mkklcdnv6temp.com/10/e/15-1583491828.jpg',
-                lastUpdate: "Aug 19,2021 - 01:26 AM",
+                lastUpdate: "5 hours ago",
                 isFollowing: false,
                 tag: [
                     "Action" ,"Adventure", "Fantasy", "Historical" ,"Martial arts"
                 ]
             },
             {
-                title: '',
+                title: 'Itensei Slime Dataken',
                 newChapter: 'Chap 66: キルボードを駆使して最強に至る',
-                imageCover: 'https://avt.mkklcdnv6temp.com/3/t/22-1598420567.jpg',
-                lastUpdate: "Aug-18-2021 23:25:20 PM",
+                lastUpdate: "1 day ago",
                 isFollowing: false,
                 tag: [
                     "Adventure", "Fantasy", "Shounen",
                 ]
             },
             {
-                title: '',
+                title: 'Re: Zero',
                 newChapter: 'Chap 12: ダイI (English); Diamond no Ace 2',
-                imageCover: 'https://avt.mkklcdnv6temp.com/50/k/13-1583489698.jpg',
-                lastUpdate: "Aug 19,2021 - 16:54 PM",
+                lastUpdate: "1 day ago",
                 isFollowing: false,
                 tag: [
                     "Comedy" ,"School life", "Shounen", "Sports"
                 ]
             },
             {
-                title: '',
+                title: 'To you, the immortal',
                 newChapter: 'Chap 40: Оперативный отряд "Daishikkaku" ; 戦隊大失格',
-                imageCover: 'https://avt.mkklcdnv6temp.com/26/h/23-1613533484.jpg',
-                lastUpdate: "Aug 19,2021 - 01:26 AM",
+                lastUpdate: "1 day ago",
             },
             {
                 title: 'Chap 72: Blue Period',
                 newChapter: 'ブルーピリオド',
-                imageCover: 'https://avt.mkklcdnv6temp.com/45/s/17-1583496913.jpg',
-                lastUpdate: "Aug 19,2021 - 01:26 AM",
-            },
-            {
-                title: 'add',
-                forwardScreen: "ListItemScreen",
-            },
+                forwardScreen: "",
+                lastUpdate: "1 day ago",
+            }
         ]
     };
 
-    renderTitle(name: string) {
+    renderTitle(name: string, chapter: string, time: string) {
         return (
-            <Text style={styles.title}>
-                {name.slice(0, 25) + (name.length>25?"...":"")}
-            </Text>
+            <>
+                <Text style={styles.title}>
+                    {name.slice(0, 50) + (name.length>50?"...":"")}
+                </Text>
+                <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+                    <Text style={styles.chapter}>
+                        {chapter.slice(0, 30) + (chapter.length>30?"...":"")}
+                    </Text>
+                    <Text style={styles.chapter}>
+                        {time}
+                    </Text>
+                </View>
+            </>
         )
     }
 
     renderImage(item: any) {
-        if (item.title === "add")
-            return (
-                <View style={styles.image}>
-                    <Icon name={"chevron-forward-circle"} size={50} type={"ionicon"} color={"#feb47b"} />
-                </View>
-            )
         return (
             <View style={styles.imgContainer}>
-                <Image
-                    style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}
-                    resizeMode="cover"
-                    source={ { uri: item.imageCover }}
-                />
+                {/*<Image*/}
+                {/*    style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}*/}
+                {/*    resizeMode="cover"*/}
+                {/*    source={ { uri: item.imageCover }}*/}
+                {/*/>*/}
                 <View>
-                    {this.renderTitle(item.newChapter)}
+                    {this.renderTitle(item.title, item.newChapter, item.lastUpdate)}
                 </View>
             </View>
         )
@@ -140,7 +131,6 @@ export class NewChapterList extends Component<Props>  {
                 <FlatList
                     style={styles.scrollView}
                     data={this.state.users}
-                    horizontal={true}
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
@@ -162,11 +152,14 @@ const styles = StyleSheet.create({
     },
     title: {
         color: "#767676",
-        fontWeight: "400",
-        flexDirection: "row",
+        fontSize: 16,
+        fontWeight: "500",
         flexWrap: "wrap",
-        maxWidth: 120,
-        minWidth: 120,
+    },
+    chapter: {
+        color: "#767676",
+        fontWeight: "400",
+        flexWrap: "wrap",
     },
     scrollView: {
         borderWidth: 0,
@@ -177,7 +170,6 @@ const styles = StyleSheet.create({
     imgContainer: {
         flexGrow: 1,
         margin: 2.5,
-        paddingBottom: 5,
     },
     image: {
         maxHeight: 160,
