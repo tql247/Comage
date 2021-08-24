@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList} from "react-native";
-import {Card} from "react-native-elements";
-import {Text} from "./Themed";
+import {Image, StyleSheet, View, Dimensions, FlatList} from "react-native";
 import {TopCarousel} from "./TopCarousel";
 
 const {height} = Dimensions.get("window");
@@ -11,22 +9,13 @@ export class MainViewScroll extends Component {
     render() {
 
         return (
-            <FlatList
-                data={[1]}
-                renderItem={({item}) => (
-                    <View style={[{flex: 1, height: "100%"}]}>
-                        <View style={styles.carousel}>
-                            <TopCarousel/>
-                        </View>
-                        <View  style={styles.centroid}>
-                            <Image
-                                style={{ width: 100, height: 100 }}
-                                source={require('../assets/images/logo.png')}
-                            />
-                        </View>
-                    </View>
-                ) }
-            />
+            <View style={[{flex: 1, height: "100%"}]}>
+                <View style={styles.carousel}>
+                    <TopCarousel/>
+                </View>
+                <View  style={[styles.centroid, {marginVertical: 10}]}>
+                </View>
+            </View>
         );
     }
 }
@@ -49,7 +38,6 @@ const styles = StyleSheet.create({
     },
     carousel: {
         flex: 1,
-        marginTop: 5,
         flexGrow: 1,
     },
     title: {

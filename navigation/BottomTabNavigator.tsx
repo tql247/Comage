@@ -100,7 +100,12 @@ function MainNavigator({navigation} : any) {
       <MainStack.Screen
         name="MainScreen"
         component={MainScreen}
-        options={{ headerTitle: "Main", headerStyle: styles.container, headerTitleAlign: "center" }}
+        options={{
+            headerTitle: "Main",
+            headerStyle: styles.container,
+            headerTitleAlign: "center",
+            headerShown: false
+        }}
       />
       <MainStack.Screen
         name="ComicDetailScreen"

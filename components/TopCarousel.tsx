@@ -82,12 +82,11 @@ const styles = StyleSheet.create({
         width,
     },
     cardWrapper: {
-        borderRadius: 8,
         overflow: 'hidden',
     },
     listContainer: {
-        width: width - 10,
-        height: height - 230,
+        width: width + 1,
+        height: height - 450,
     },
     cornerLabel: {
         position: 'absolute',

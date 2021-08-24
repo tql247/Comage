@@ -5,6 +5,7 @@ import {Text} from "./Themed";
 import { ListItem, Avatar, Icon, Button } from 'react-native-elements';
 import {ChapterList} from "./ChapterList";
 import {FootItemDetail} from "./FootItemDetail";
+import {height} from "styled-system";
 const {width} = Dimensions.get("window");
 const randomColor = require('randomcolor');
 
@@ -23,6 +24,8 @@ export class DetailItem extends Component<Props> {
             imageCover: 'https://avt.mkklcdnv6temp.com/3/t/22-1598420567.jpg',
             lastUpdate: "Aug 18,2021 - 21:30 PM",
             isFollowing: false,
+            width: width/3,
+            height: 0,
             tag: [
                 "Action",
                 "Adventure",
@@ -33,6 +36,13 @@ export class DetailItem extends Component<Props> {
         },
     };
 
+
+    componentDidMount() {
+        Image.getSize(this.state.item.imageCover, (imgWidth, imgHeight) => {
+            const newHeight = (width/3)* imgHeight/imgWidth
+            this.setState({item: {...this.state.item, ...{height: newHeight}}})
+        })
+    }
 
 
     render() {
@@ -64,7 +74,7 @@ export class DetailItem extends Component<Props> {
                             </View>
 
                             <Image
-                                style={styles.image}
+                                style={[styles.image, {width: this.state.item.width, height: this.state.item.height}]}
                                 resizeMode="cover"
                                 source={{ uri: this.state.item.imageCover }}
                             />
@@ -118,7 +128,6 @@ const styles = StyleSheet.create({
     },
     image: {
         height: "auto",
-        width: width/3,
         overflow: "hidden",
         borderRadius: 5,
         margin: 10,

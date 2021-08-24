@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Dimensions, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Dimensions, FlatList, RefreshControl, StyleSheet, TouchableOpacity} from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-import {TopCarousel} from "../components/TopCarousel";
 import {MainViewScroll} from "../components/MainViewScroll";
 import {NewChapterList} from "../components/NewChapterList";
 import {NewComic} from "../components/NewComic";
-import * as Linking from "expo-linking";
 import {GotMovieList} from "../components/GotMovieList";
+import {TopTrend} from "../components/TopTrend";
+import {Icon} from "react-native-elements";
+import {ListTag} from "../components/ListTag";
 
 const {height} = Dimensions.get("window");
 
@@ -18,22 +18,22 @@ export default function MainScreen({ navigation, props } : any) {
       <FlatList
           data={[1]}
           numColumns={1}
+          refreshControl={<RefreshControl  refreshing={true} />}
           renderItem={({item}) => (
               <View style={styles.container}>
                   <MainViewScroll/>
                   <View style={styles.threadContainer}>
-                      <TouchableOpacity
-                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Top Trending'}))}
-                      >
-                          <Text style={styles.threadTitle}>Top Trending</Text>
-                      </TouchableOpacity>
-                      <NewChapterList {...props} navigation={navigation} subject={"Top Trending"} />
+                      <Icon style={{margin: 5}} size={35} color={"#ff7e5f"} name={"stats-chart"} type={"ionicon"} />
+                      <TopTrend {...props} navigation={navigation} subject={"Top Trending"} />
+                  </View>
+                  <View style={styles.threadContainer}>
+                      <ListTag />
                   </View>
                   <View style={styles.threadContainer}>
                       <TouchableOpacity
                           onPress={() => (navigation.navigate('ListItemScreen', { subject: 'New Chapter'}))}
                       >
-                          <Text style={styles.threadTitle}>New Chapter</Text>
+                          <Text style={styles.threadTitle}>Latest</Text>
                       </TouchableOpacity>
                       <NewChapterList {...props} navigation={navigation} />
                   </View>
