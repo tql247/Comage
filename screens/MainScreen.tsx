@@ -29,11 +29,11 @@ export default function MainScreen({ navigation, props } : any) {
                   <View style={styles.threadContainer}>
                       <ListTag />
                   </View>
-                  <View style={styles.threadContainer}>
+                  <View style={[styles.threadContainer, {margin: 0}]}>
                       <TouchableOpacity
                           onPress={() => (navigation.navigate('ListItemScreen', { subject: 'New Chapter'}))}
                       >
-                          <Text style={styles.threadTitle}>Latest</Text>
+                          <Text style={[styles.threadTitle, {margin: 5}]}>Latest</Text>
                       </TouchableOpacity>
                       <NewChapterList {...props} navigation={navigation} />
                   </View>
@@ -41,23 +41,7 @@ export default function MainScreen({ navigation, props } : any) {
                       <TouchableOpacity
                           onPress={() => (navigation.navigate('ListItemScreen', { subject: 'New Comic'}))}
                       >
-                        <Text style={styles.threadTitle}>New Comic</Text>
-                      </TouchableOpacity>
-                      <NewComic />
-                  </View>
-                  <View style={styles.threadContainer}>
-                      <TouchableOpacity
-                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Weekly'}))}
-                      >
-                        <Text style={styles.threadTitle}>Weekly</Text>
-                      </TouchableOpacity>
-                      <NewComic />
-                  </View>
-                  <View style={styles.threadContainer}>
-                      <TouchableOpacity
-                          onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Monthly'}))}
-                      >
-                        <Text style={styles.threadTitle}>Monthly</Text>
+                        <Text style={styles.threadTitle}>Newest</Text>
                       </TouchableOpacity>
                       <NewComic />
                   </View>
@@ -65,7 +49,7 @@ export default function MainScreen({ navigation, props } : any) {
                       <TouchableOpacity
                           onPress={() => (navigation.navigate('ListItemScreen', { subject: 'Complete'}))}
                       >
-                        <Text style={styles.threadTitle}>Complete</Text>
+                        <Text style={styles.threadTitle}>Completed</Text>
                       </TouchableOpacity>
                       <NewComic />
                   </View>

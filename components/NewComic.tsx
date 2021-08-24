@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList} from "react-native";
+import {Image,  StyleSheet, View, FlatList} from "react-native";
 
-
-const {height, width} = Dimensions.get("window");
 
 export class NewComic extends Component {
 

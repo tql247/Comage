@@ -7,7 +7,7 @@ const randomColor = require('randomcolor');
 export class ListTag extends Component {
     state = {
         tags: [
-            "Completed", "Latest", "Newest", "Top view",
+            "Completed", "Newest", "Top view",
             "Action", "Adult", "Adventure", "Comedy",
             "Cooking", "Doujinshi", "Drama", "Ecchi",
             "Fantasy", "Gender bender", "Harem", "Historical",
@@ -24,7 +24,7 @@ export class ListTag extends Component {
         return (
             <View style={[{flex: 1, height: "100%", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", marginBottom: 3}]}>
                 {this.state.tags.map((item) => (
-                    <Text style={ [styles.tag, { color: randomColor()}]}>#{item}</Text>
+                    <Text key={item} style={ [styles.tag, { color: randomColor()}]}>#{item}</Text>
                 ))}
             </View>
         );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     tag: {
         paddingVertical: 1,
         paddingHorizontal: 3,
-        backgroundColor: "#fefefe",
+        backgroundColor: "rgba(245,245,245,0.95)",
         marginRight: 1,
         marginBottom: 1,
         flexGrow: 1,

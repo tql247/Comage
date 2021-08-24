@@ -102,9 +102,9 @@ function MainNavigator({navigation} : any) {
         component={MainScreen}
         options={{
             headerTitle: "Main",
-            headerStyle: styles.container,
+            headerStyle: styles.headerStyle,
             headerTitleAlign: "center",
-            headerShown: false
+            headerShown: false,
         }}
       />
       <MainStack.Screen
@@ -215,6 +215,14 @@ function ProfileNavigator() {
 
 
 const styles = StyleSheet.create({
+    headerStyle: {
+        flex: 1,
+        alignSelf: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: 'white',
+        height: 0
+    },
     container: {
         flex: 1,
         alignSelf: "center",

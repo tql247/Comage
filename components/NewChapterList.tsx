@@ -14,10 +14,12 @@ interface Props {
     navigation: any
 }
 
+let itemIndex = 0;
+
 export class NewChapterList extends Component<Props>  {
 
     state = {
-        users: [
+        items: [
             {
                 title: 'Comage',
                 newChapter: 'Chap 32: Release That Witch',
@@ -84,8 +86,8 @@ export class NewChapterList extends Component<Props>  {
                 lastUpdate: "1 day ago",
             },
             {
-                title: 'Chap 72: Blue Period',
-                newChapter: 'ブルーピリオド',
+                title: 'Blue Period',
+                newChapter: 'Chap 72: ブルーピリオド',
                 forwardScreen: "",
                 lastUpdate: "1 day ago",
             }
@@ -93,8 +95,10 @@ export class NewChapterList extends Component<Props>  {
     };
 
     renderTitle(name: string, chapter: string, time: string) {
+        itemIndex++;
+
         return (
-            <>
+            <View style={{backgroundColor: itemIndex%2===0?"rgba(225,225,225,0.5)":"transparent", padding: 5}}>
                 <Text style={styles.title}>
                     {name.slice(0, 50) + (name.length>50?"...":"")}
                 </Text>
@@ -106,21 +110,14 @@ export class NewChapterList extends Component<Props>  {
                         {time}
                     </Text>
                 </View>
-            </>
+            </View>
         )
     }
 
-    renderImage(item: any) {
+    renderItem(item: any) {
         return (
             <View style={styles.imgContainer}>
-                {/*<Image*/}
-                {/*    style={[styles.image, {backgroundColor: item.backgroundColor || "#feb47b"}]}*/}
-                {/*    resizeMode="cover"*/}
-                {/*    source={ { uri: item.imageCover }}*/}
-                {/*/>*/}
-                <View>
-                    {this.renderTitle(item.title, item.newChapter, item.lastUpdate)}
-                </View>
+                {this.renderTitle(item.title, item.newChapter, item.lastUpdate)}
             </View>
         )
     }
@@ -130,13 +127,13 @@ export class NewChapterList extends Component<Props>  {
             <View style={styles.flatListContainer}>
                 <FlatList
                     style={styles.scrollView}
-                    data={this.state.users}
+                    data={this.state.items}
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
                                 onPress={() => (this.props.navigation.navigate(item.forwardScreen || "ComicDetailScreen", {subject: "Got Movie/Anime"}))}
                             >
-                                {this.renderImage(item)}
+                                {this.renderItem(item)}
                             </TouchableOpacity>
                         </View>
                     )}
@@ -148,10 +145,11 @@ export class NewChapterList extends Component<Props>  {
 
 const styles = StyleSheet.create({
     flatListContainer: {
-        flex: 1
+        flex: 1,
+        marginBottom: 20
     },
     title: {
-        color: "#767676",
+        color: "#666666",
         fontSize: 16,
         fontWeight: "500",
         flexWrap: "wrap",
@@ -169,7 +167,6 @@ const styles = StyleSheet.create({
     },
     imgContainer: {
         flexGrow: 1,
-        margin: 2.5,
     },
     image: {
         maxHeight: 160,
