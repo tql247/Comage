@@ -102,7 +102,7 @@ function MainNavigator({navigation} : any) {
         component={MainScreen}
         options={{
             headerTitle: "Main",
-            headerStyle: styles.headerStyle,
+            headerStyle: styles.fff,
             headerTitleAlign: "center",
             headerShown: false,
         }}
@@ -134,13 +134,15 @@ function SearchNavigator() {
             headerTintColor: 'white',
             headerBackground: () =>
                 <GradientHeaderTitle />,
-            headerStyle: { backgroundColor: 'white' },
         }}
     >
       <SearchStack.Screen
         name="SearchScreen"
         component={SearchScreen}
-        options={{ headerTitle: () => <SearchBarHeader />, headerStyle: styles.container}}
+        options={{
+            headerTitle: () => <SearchBarHeader />,
+            headerStyle: styles.container
+        }}
       />
     </SearchStack.Navigator>
   );
@@ -215,7 +217,7 @@ function ProfileNavigator() {
 
 
 const styles = StyleSheet.create({
-    headerStyle: {
+    fff: {
         flex: 1,
         alignSelf: "center",
         alignItems: "center",
@@ -228,6 +230,6 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
     }
 });

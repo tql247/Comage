@@ -100,14 +100,9 @@ export class FollowingFlatList extends Component<Props> {
                 if (buttonIndex === 0) {
                     const _itemIndex = this.state.items.findIndex(x => x.coverImageURI === _item.coverImageURI);
                     const cpyItems = this.state.items;
-                    console.log(cpyItems)
-                    console.log(cpyItems.length)
                     cpyItems.splice(_itemIndex, 1);
-                    console.log(cpyItems)
-                    console.log(cpyItems.length)
                     this.setState({items: cpyItems})
                 }
-                // this.props.navigation.replace("ListingScreen");
             },
         );
     }
@@ -125,7 +120,7 @@ export class FollowingFlatList extends Component<Props> {
                     renderItem={({item}) => (
                         <TouchableOpacity
                             style={styles.touchButton}
-                            delayLongPress={1000}
+                            delayLongPress={800}
                             onPress={this._onPressButton}
                             onLongPress={() => this._onLongPressFollowingItem(item)}
                         >

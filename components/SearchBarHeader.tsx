@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         height: '100%',
         color: 'white',
+        backgroundColor: 'rgba(255,255,255,0)',
+        shadowColor: 'rgba(255,255,255,0)', //no effect
+        borderTopColor: 'rgba(255,255,255,0)',
     },
     red: {
         // backgroundColor: 'red',
@@ -59,6 +62,8 @@ const styles = StyleSheet.create({
     },
     yellow: {
         // backgroundColor: 'yellow',
+        // minWidth: '100%',
+        // width: '100%'
         // color: 'white',
     },
     pink: {

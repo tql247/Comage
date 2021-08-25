@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
+import {Image, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
 import {Text} from "./Themed";
-
-import { ListItem, Avatar, Icon, Button } from 'react-native-elements';
-import {ChapterList} from "./ChapterList";
+import { Button } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import {FootItemDetail} from "./FootItemDetail";
-import {height} from "styled-system";
 const {width} = Dimensions.get("window");
-const randomColor = require('randomcolor');
 
 interface Props {
     navigation: any
@@ -73,11 +70,19 @@ export class DetailItem extends Component<Props> {
                                 </View>
                             </View>
 
-                            <Image
-                                style={[styles.image, {width: this.state.item.width, height: this.state.item.height}]}
-                                resizeMode="cover"
-                                source={{ uri: this.state.item.imageCover }}
-                            />
+                            <View>
+                                <Image
+                                    style={[styles.image, {width:  width/3, height: this.state.item.height}]}
+                                    resizeMode="cover"
+                                    source={{ uri: this.state.item.imageCover }}
+                                />
+                                <Button
+                                    buttonStyle={{height: 32, width:  width/3, marginHorizontal: 10, backgroundColor: "#ff7e5f"}}
+                                    title="Read now"
+                                    titleStyle={{justifyContent: "center", fontSize: 16, paddingBottom: 5}}
+                                    onPress={() => (this.props.navigation.navigate("ReadingScreen"))}
+                                />
+                            </View>
                         </View>
                         <View>
                             <Text style={styles.description}>
@@ -127,10 +132,10 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     image: {
-        height: "auto",
         overflow: "hidden",
         borderRadius: 5,
         margin: 10,
+        marginBottom: 5
     },
     header: {
         flex: 1,
