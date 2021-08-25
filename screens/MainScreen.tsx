@@ -58,7 +58,7 @@ export default function MainScreen({ navigation, props } : any) {
                           >
                             <Text style={styles.threadTitle}>Newest</Text>
                           </TouchableOpacity>
-                          <NewComic />
+                          <GotMovieList {...props} navigation={navigation} />
                       </View>
                       <View style={styles.threadContainer}>
                           <TouchableOpacity
@@ -66,7 +66,7 @@ export default function MainScreen({ navigation, props } : any) {
                           >
                             <Text style={styles.threadTitle}>Completed</Text>
                           </TouchableOpacity>
-                          <NewComic />
+                          <GotMovieList {...props} navigation={navigation} />
                       </View>
                       <View style={styles.threadContainer}>
                           <TouchableOpacity

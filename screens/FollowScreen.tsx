@@ -1,15 +1,22 @@
 import * as React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 import {FollowingFlatList} from "../components/FollowingFlatList";
+import {useActionSheet} from "@expo/react-native-action-sheet";
 
-const {width} = Dimensions.get("window");
 
-export default function FollowScreen() {
+export default function FollowScreen({props, route, navigation} : any) {
+
+    const { showActionSheetWithOptions } = useActionSheet();
+
   return (
       <View style={styles.container}>
-        <FollowingFlatList/>
+        <FollowingFlatList
+            {...props}
+            navigation={navigation}
+            showActionSheetWithOptions={showActionSheetWithOptions}
+        />
       </View>
   );
 }

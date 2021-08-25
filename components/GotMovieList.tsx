@@ -211,9 +211,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         flex: 1,
         flexGrow: 1,
-        borderWidth: 2,
-        borderColor: "#feb47b",
-        color: "#feb47b",
+        borderWidth: 0.1,
+        borderColor: "rgba(254,180,123,0.5)",
+        color: "rgba(254,180,123,0.5)",
         overflow: "hidden",
         alignItems: "center",
         justifyContent: "center"

@@ -216,8 +216,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     image: {
-        borderWidth: 0.5,
-        borderColor: "rgba(204,204,204,0.5)",
+        borderWidth: 0.1,
+        borderColor: "rgba(173,173,173,0.5)",
         maxHeight: 75,
         maxWidth: 75,
         minHeight: 75,

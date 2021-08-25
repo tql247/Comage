@@ -1,21 +1,27 @@
 import React, { Component } from "react";
-import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList} from "react-native";
+import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
 import {Text} from "./Themed";
+import {ActionSheetOptions} from "@expo/react-native-action-sheet";
 
 
 const {height, width} = Dimensions.get("window");
 const numColumn = Math.floor(width/100) - 1;
-console.log('numColumn')
-console.log(width)
-console.log(numColumn)
 
-export class FollowingFlatList extends Component {
+interface Props {
+    navigation : any;
+    showActionSheetWithOptions: (
+        options: ActionSheetOptions,
+        callback: (buttonIndex: number) => void
+    ) => void;
+}
+
+export class FollowingFlatList extends Component<Props> {
 
     state = {
         screenHeight: 0,
         users: [
             {
-                title: '文学之祖 体裁',
+                title: 'Dragon Ball by Akira Toriyama',
                 coverImageURI: 'https://www.kindpng.com/picc/m/236-2362818_anime-sempai-animegirl-heart-kawaii-cute-anime-girl.png'
             },
             {
@@ -23,7 +29,7 @@ export class FollowingFlatList extends Component {
                 coverImageURI: 'https://i.imgur.com/wDlae3z.jpg'
             },
             {
-                title: 'У меня',
+                title: 'Inuyasha by Rumiko Takahashi',
                 coverImageURI: 'https://i.imgur.com/zNZmemg.jpg'
             },
             {
@@ -35,35 +41,35 @@ export class FollowingFlatList extends Component {
                 coverImageURI: 'https://i.imgur.com/ZvFehmB.jpg'
             },
             {
-                title: '不要搅扰水。',
+                title: 'Naruto by Masashi Kishimoto',
                 coverImageURI: 'https://i.imgur.com/esC9VjO.jpg'
             },
             {
-                title: '有心就洗笋，有扰就洗清水',
+                title: 'Fullmetal Alchemist by Hiromu Arakawa',
                 coverImageURI: 'https://i.imgur.com/zEqLKpl.jpg'
             },
             {
-                title: '塘里上 东西',
+                title: 'Death Note by Tsugumi Ohba and Takeshi Obata',
                 coverImageURI: 'https://i.imgur.com/l9lwBT6.jpg'
             },
             {
-                title: '3月ま ヘビの首を噛み、',
+                title: 'Fruits Basket by Natsuki Takaya',
                 coverImageURI: 'https://i.imgur.com/tKKGXAH.jpg'
             },
             {
-                title: ' ヘビの首を噛',
+                title: 'Sailor Moon by Naoko Takeuchi',
                 coverImageURI: 'https://i.pinimg.com/564x/42/fb/ac/42fbaca97af619fb2327cf7561fa53c1.jpg'
             },
             {
-                title: ' ヘビの首を噛',
+                title: 'My Hero Academia by Kohei Horikoshi',
                 coverImageURI: 'https://i.pinimg.com/564x/15/63/4c/15634cf53dcabcf55d3e8c9bbb771afe.jpg'
             },
             {
-                title: ' ヘビの首を噛',
+                title: 'Death Note',
                 coverImageURI: 'https://i.pinimg.com/564x/c9/72/5c/c9725ccda0271714e360655a916dd94b.jpg'
             },
             {
-                title: ' ヘビの首を噛',
+                title: 'Naruto',
                 coverImageURI: 'https://i.pinimg.com/564x/91/3b/ec/913becf803280c4f2baff246990d7ba9.jpg'
             },
             {
@@ -193,24 +199,55 @@ export class FollowingFlatList extends Component {
         this.setState({ screenHeight: contentHeight });
     };
 
+    _onPressButton() {
+        console.log('af')
+    }
+
+    _onLongPressFollowingItem() {
+        const options = ['Unfollow!', 'Cancel'];
+        const destructiveButtonIndex = 0;
+        const cancelButtonIndex = 1;
+        console.log('a')
+
+        this.props.showActionSheetWithOptions(
+            {
+                options,
+                cancelButtonIndex,
+                destructiveButtonIndex,
+            },
+            buttonIndex => {
+                // if (buttonIndex === 0) this.props.navigation.replace("ListingScreen");
+            },
+        );
+    }
+
 
     render() {
-        const scrollEnabled = this.state.screenHeight > height;
-
         return (
             <View style={styles.flatListContainer}>
                 <FlatList
                     style={styles.scrollView}
                     data={this.state.users}
                     numColumns={numColumn}
+                    keyExtractor={item => item.coverImageURI.toString()}
                     renderItem={({item}) => (
-                        <View style={styles.imgContainer}>
-                            <Image
-                                style={styles.image}
-                                resizeMode="cover"
-                                source={{ uri: item.coverImageURI }}
-                            />
-                        </View>
+                        <TouchableOpacity
+                            style={styles.touchButton}
+                            delayLongPress={1000}
+                            onPress={this._onPressButton}
+                            onLongPress={() => this._onLongPressFollowingItem()}
+                        >
+                            <View style={styles.imgContainer}>
+                                <Image
+                                    style={styles.image}
+                                    resizeMode="cover"
+                                    source={{ uri: item.coverImageURI }}
+                                />
+                                <View style={styles.titleContainer}>
+                                    <Text numberOfLines={2} style={styles.title}>{item.title}</Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
                     ) }
                 />
             </View>
@@ -221,7 +258,8 @@ export class FollowingFlatList extends Component {
 const styles = StyleSheet.create({
     flatListContainer: {
         flex: 1,
-        margin: 2.5
+        marginHorizontal: 2.5,
+        marginTop: 2.5
     },
     scrollView: {
         borderWidth: 0,
@@ -229,27 +267,43 @@ const styles = StyleSheet.create({
         shadowColor: 'transparent',
         flex: 1
     },
+    touchButton: {
+        flexGrow: 1,
+    },
     imgContainer: {
         flexGrow: 1,
         margin: 2.5,
         flexDirection: "row",
         flexWrap: "wrap",
-    },
-    image: {
         maxHeight: 250,
         maxWidth: 200,
-        minHeight: 150,
+        minHeight: 180,
         minWidth: 100,
+        overflow: "hidden",
         borderRadius: 5,
+        borderColor: "rgba(254,180,123,0.1)",
+        borderWidth: 0.1,
+        backgroundColor: "rgba(254,180,123,0.5)",
+    },
+    image: {
+        width: "100%",
+        height: "100%",
         flex: 1,
         flexGrow: 1,
-        borderWidth: 2,
-        borderColor: "#feb47b",
-        backgroundColor: "#feb47b",
-        overflow: "hidden",
+    },
+    titleContainer: {
+        backgroundColor: "rgba(20,20,20,0.5)",
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        paddingHorizontal: 1,
+        paddingBottom: 1
     },
     title: {
-        fontSize: 17,
-        fontWeight: 'bold',
+        fontSize: 14,
+        fontWeight: '400',
+        width: "100%",
+        color: "rgba(255,255,255,0.9)",
+        marginHorizontal: 1,
     },
 });

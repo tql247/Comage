@@ -44,12 +44,7 @@ export default class SearchBarHeader extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'none',
         borderBottomWidth: 0,
-        shadowColor: 'transparent', //no effect
-        borderBottomColor: 'none',
-        borderTopColor: 'transparent',
-        borderColor: 'none',
         borderWidth: 0,
         height: '100%',
         color: 'white',

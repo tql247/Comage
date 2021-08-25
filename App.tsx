@@ -7,7 +7,7 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
-export default function App() {
+function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
@@ -19,6 +19,23 @@ export default function App() {
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
       </SafeAreaProvider>
+    );
+  }
+}
+
+
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
+import { connectActionSheet } from '@expo/react-native-action-sheet';
+
+const ConnectedApp = connectActionSheet(App);
+
+export default class AppContainer extends React.Component {
+
+  render() {
+    return (
+        <ActionSheetProvider>
+          <ConnectedApp {...this.props}/>
+        </ActionSheetProvider>
     );
   }
 }
