@@ -77,9 +77,9 @@ export class DetailItem extends Component<Props> {
                                     source={{ uri: this.state.item.imageCover }}
                                 />
                                 <Button
-                                    buttonStyle={{height: 32, width:  width/3, marginHorizontal: 10, backgroundColor: "#ff7e5f"}}
+                                    buttonStyle={{height: 30, width:  width/3, marginHorizontal: 10, paddingVertical: 5, backgroundColor: "#ff7e5f", alignItems: "flex-end"}}
                                     title="Read now"
-                                    titleStyle={{justifyContent: "center", fontSize: 16, paddingBottom: 5}}
+                                    titleStyle={{fontSize: 16, marginBottom: 1}}
                                     onPress={() => (this.props.navigation.navigate("ReadingScreen"))}
                                 />
                             </View>
