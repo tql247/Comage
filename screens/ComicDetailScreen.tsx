@@ -13,7 +13,7 @@ import {FootItemDetail} from "../components/FootItemDetail";
 const {height} = Dimensions.get("window");
 const {width} = Dimensions.get("window");
 
-export default function ComicDetailScreen({props, navigation} : any) {
+export default function ComicDetailScreen({props, navigation, route} : any) {
     const state = {};
 
     return (
@@ -23,7 +23,7 @@ export default function ComicDetailScreen({props, navigation} : any) {
             numColumns={1}
             renderItem={({item}) => (
                 <View style={styles.container}>
-                    <DetailItem {...props} navigation={navigation} />
+                    <DetailItem {...props} navigation={navigation} params={route.params} />
                 </View>
             ) }
         />

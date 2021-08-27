@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
 import {Text} from "./Themed";
+import {APIConfig} from "../config";
 
 
 const {height, width} = Dimensions.get("window");
@@ -10,7 +11,8 @@ console.log(width)
 console.log(numColumn)
 
 interface Props {
-    navigation: any
+    navigation: any;
+    params: any;
 }
 
 export class ChapterList extends Component<Props> {
@@ -182,9 +184,51 @@ export class ChapterList extends Component<Props> {
                 chapIndexer: '1',
                 chapName: 'Eargard And The Board Of Skills',
                 updatedAt: "Aug 26,20",
+                chapterId: "",
             },
         ]
     };
+
+
+    _parseChapter(data: any) {
+        const newItems = data.map((item: any, index: any) => {
+            return {
+                chapIndexer: index + 1,
+                chapName: item.chapter_name,
+                updatedAt: new Date( item.updated_at || item.create_at).toLocaleString(),
+                chapterId: item.id,
+            }
+        });
+
+        this.setState({item: newItems})
+    }
+
+
+
+    _getMangaChapters() {
+        const axios = require('axios');
+
+        const config = {
+            method: 'get',
+            url: APIConfig['api']['get_manga_chapters'] + this.props.params.mangaId,
+            headers: {}
+        };
+
+        const self = this;
+
+        axios(config)
+            .then(function (response: any) {
+                self._parseChapter(response.data.chapters)
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
+
+    }
+
+    componentDidMount() {
+        this._getMangaChapters();
+    }
 
     render() {
         return (
@@ -192,11 +236,12 @@ export class ChapterList extends Component<Props> {
                 {this.state.item.map((item) => (
                     <View style={styles.chapterContainer}>
                         <TouchableOpacity
-                            onPress={() => (this.props.navigation.navigate("ReadingScreen"))}
+                            onPress={() => (this.props.navigation.navigate("ReadingScreen", {chapterId: item.chapterId}))}
                         >
                             <Text style={styles.chapterContainer}>
-                                Chapter {item.chapIndexer}: {item.chapName} - <Text style={{color: "#666666", fontStyle: "italic"}}>{item.updatedAt}</Text>
+                                Chap {item.chapIndexer}: {item.chapName}
                             </Text>
+                            <Text style={{color: "#666666", fontStyle: "italic"}}>{item.updatedAt}</Text>
                         </TouchableOpacity>
                     </View>
                 ))}

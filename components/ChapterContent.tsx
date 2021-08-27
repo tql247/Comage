@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import {Image, ScrollView, StyleSheet, View, Dimensions, FlatList, TouchableOpacity} from "react-native";
 import {Text} from "./Themed";
+import {APIConfig} from "../config";
 
 const {height, width} = Dimensions.get("window");
 const imageWidth = width - 5;
 
-export class ChapterContent extends Component {
+interface Props {
+    params: any;
+}
+
+export class ChapterContent extends Component<Props> {
 
     state = {
         index: 0,
@@ -92,8 +97,46 @@ export class ChapterContent extends Component {
         ]
     };
 
+    _parseChapterContent(data: any) {
+        const newItems = data.map((item: any, index: any) => {
+            return {
+                'indexer': index,
+                'imageURI': item.chapter_content_uri,
+                'width': 0,
+                'height': 0,
+            }
+        })
+
+        this.setState({item: newItems});
+    }
+
+    _getChapterContent() {
+        const axios = require('axios');
+        console.log('chapter ID')
+        console.log(this.props.params.chapterId)
+
+        const config = {
+            method: 'get',
+            url: APIConfig['api']['get_chapter_details'],
+            headers: {}
+        };
+
+        const self = this;
+
+        axios(config)
+            .then(function (response: any) {
+                self._parseChapterContent(response.data.chapterDetails);
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
+
+    }
+
 
     componentDidMount() {
+        // this._getChapterContent();
+
         // resize image to fit screen
         this.state.item.map((item, idx: number) => {
             Image.getSize(item.imageURI, (width, height) => {

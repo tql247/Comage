@@ -8,29 +8,15 @@ const {width} = Dimensions.get("window");
 const randomColor = require('randomcolor');
 
 interface Props {
-    navigation: any
+    navigation: any;
+    params: any;
 }
 
 export class FootItemDetail extends Component<Props> {
 
     state = {
         indexTab: 0,
-        item: {
-            title: 'The Reincarnated Inferior Magic Swordsman',
-            alternative : 'Rettou Hito no Maken Tsukai Sukiruboudo o Kushi Shite Saikyou ni Itaru',
-            description: 'A male engineer transmigrated into another world, and became a prince. This place strikingly resembles the Middle Ages of Europe, but at the same time, it seems kind of different? Witches truly exists, and they even possess magic powers! Magic powers are productive forces! Save the witches, liberate the productive forces! Open map, fight demons, break conspiracies, climb up the science and technology tree, and open the path of hardcore ‘farming’!',
-            author: "Hagiu Aki - Kanou Hiroto",
-            imageCover: 'https://avt.mkklcdnv6temp.com/3/t/22-1598420567.jpg',
-            lastUpdate: "Aug 18,2021 - 21:30 PM",
-            isFollowing: false,
-            tag: [
-                "Action",
-                "Adventure",
-                "Fantasy",
-                "Shounen",
-                "Webtoons"
-            ]
-        },
+        chapters: [],
     };
 
     render() {
@@ -43,7 +29,9 @@ export class FootItemDetail extends Component<Props> {
 
                 <TabView value={this.state.indexTab} >
                     <TabView.Item style={{ }}>
-                        <ChapterList {...this.props} navigation={this.props.navigation} />
+                        <ChapterList {...this.props}
+                                     navigation={this.props.navigation}
+                                     params={this.props.params}/>
                     </TabView.Item>
                     <TabView.Item style={{ width: '100%' }}>
                         <Text>comment</Text>

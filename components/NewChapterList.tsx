@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { ListItem, Icon } from 'react-native-elements';
 import {Text} from "./Themed";
+import {APIConfig} from "../config";
 
 interface Props {
     navigation: any
@@ -24,6 +25,7 @@ export class NewChapterList extends Component<Props>  {
                 title: 'Comage',
                 newChapter: 'Chap 32: Release That Witch',
                 lastUpdate: "Just now",
+                mangaId: ""
             },
             {
                 title: 'Grand blue',
@@ -94,6 +96,47 @@ export class NewChapterList extends Component<Props>  {
         ]
     };
 
+    _mapData(data: any) {
+        const newItems = []
+        for (let row of data) {
+            const item = {
+                title: row["manga_name"],
+                newChapter: row["chapter_name"],
+                lastUpdate: row["updated_at"] || row["create_at"],
+                forwardScreen: "",
+                mangaId: row["manga_id"],
+            }
+
+            newItems.push(item)
+        }
+
+        this.setState({items: newItems})
+    }
+
+    _getLatestChapter() {
+        const axios = require('axios');
+
+        const config = {
+            method: 'get',
+            url: APIConfig['api']['get_chapter_latest'],
+            headers: {}
+        };
+
+        const self = this
+
+        axios(config)
+            .then(function (response: any) {
+                self._mapData(response.data.latestChapters)
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
+    }
+
+    componentDidMount() {
+        this._getLatestChapter();
+    }
+
     renderTitle(name: string, chapter: string, time: string) {
         itemIndex++;
 
@@ -131,7 +174,14 @@ export class NewChapterList extends Component<Props>  {
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
-                                onPress={() => (this.props.navigation.navigate(item.forwardScreen || "ComicDetailScreen", {subject: "Got Movie/Anime"}))}
+                                onPress={() => (this.props.navigation.navigate(
+                                        item.forwardScreen || "ComicDetailScreen",
+                                        {
+                                            subject: "Got Movie/Anime",
+                                            mangaId: item.mangaId,
+                                            mangaTitle: item.title
+                                        }
+                                    ))}
                             >
                                 {this.renderItem(item)}
                             </TouchableOpacity>

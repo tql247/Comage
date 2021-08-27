@@ -10,7 +10,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const {height} = Dimensions.get("window");
 
-export default function ReadingScreen({props, navigation} : any) {
+export default function ReadingScreen({props, navigation, route} : any) {
     const state = {
         chapter: {
             chapIndex: "31",
@@ -42,7 +42,7 @@ export default function ReadingScreen({props, navigation} : any) {
                     style={styles.scrollView}
                     data={[1]}
                     renderItem={({item}) => (
-                        <ChapterContent />
+                        <ChapterContent {...props} params={route.params} />
                     ) }
                 />
                 {/*    </View>*/}

@@ -4,10 +4,12 @@ import {Text} from "./Themed";
 import { Button } from 'react-native-elements';
 import { Icon } from 'react-native-elements';
 import {FootItemDetail} from "./FootItemDetail";
+import {APIConfig} from "../config";
 const {width} = Dimensions.get("window");
 
 interface Props {
-    navigation: any
+    navigation: any;
+    params: any;
 }
 
 export class DetailItem extends Component<Props> {
@@ -33,8 +35,45 @@ export class DetailItem extends Component<Props> {
         },
     };
 
+    _parseMangaInfo(data: any) {
+        const manga = {
+            title: this.props.params.mangaTitle,
+            alternative: data.alternative,
+            description: data.description,
+            author: data.author_s,
+            imageCover: data.image_cover_uri,
+            lastUpdate: data.updated_at || data.create_at,
+            tag: data.tags.split('#')
+        }
+
+        this.setState({item: manga})
+    }
+
+    _getMangaInfo() {
+        const axios = require('axios');
+
+        const config = {
+            method: 'get',
+            url: APIConfig['api']['get_manga_info'] + this.props.params.mangaId,
+            headers: {}
+        };
+
+        const self = this;
+
+        axios(config)
+            .then(function (response: any) {
+                self._parseMangaInfo(response.data.mangaInfo[0])
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
+
+    }
+
 
     componentDidMount() {
+        this._getMangaInfo();
+
         Image.getSize(this.state.item.imageCover, (imgWidth, imgHeight) => {
             const newHeight = (width/3)* imgHeight/imgWidth
             this.setState({item: {...this.state.item, ...{height: newHeight}}})
@@ -112,7 +151,9 @@ export class DetailItem extends Component<Props> {
                             </View>
                         </View>
                         <View >
-                            <FootItemDetail  {...this.props} navigation={this.props.navigation} />
+                            <FootItemDetail  {...this.props}
+                                             navigation={this.props.navigation}
+                                             params={this.props.params} />
                         </View>
                     </View>
                 ) }
