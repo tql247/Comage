@@ -66,6 +66,8 @@ export class ChapterContent extends Component<Props> {
             });
     }
 
+
+
     componentDidMount() {
         console.log('aàd')
         console.log('aàd')
@@ -77,7 +79,6 @@ export class ChapterContent extends Component<Props> {
     render() {
         return (
             <View>
-                <View>{this.state.chapterId}</View>
                 {this.state.item.map((item) => (
                     <View style={styles.container}>
                         <Image

@@ -33,13 +33,12 @@ export default function ReadingScreen({props, navigation, route} : any) {
                 </View>
             </View>
             <View style={{marginTop: 47, height: height - 80, backgroundColor: "#ccc"}}>
-                {chapter.chapterId}
                 <FlatList
                     extraData={chapter}
                     style={styles.scrollView}
                     data={[1]}
                     renderItem={({item}) => (
-                        <ChapterContent chapter={chapter} />
+                        <ChapterContent key={chapter.chapterId} chapter={chapter} />
                     ) }
                 />
             </View>
