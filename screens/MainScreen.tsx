@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
         color: "#ff7e5f",
         borderWidth: 0,
         margin: 2.5,
+        marginBottom: 3,
         fontSize: 18,
         fontWeight: "500",
         borderColor: "transparent",

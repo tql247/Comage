@@ -164,6 +164,7 @@ export class TopTrend extends Component<Props>  {
                     style={styles.scrollView}
                     data={this.state.users}
                     horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity
