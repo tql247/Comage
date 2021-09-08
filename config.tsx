@@ -8,5 +8,6 @@ export const APIConfig = {
         'get_manga_chapters': `http://${HOST}:${PORT}/chapter/get?mangaId=`,
         'get_chapter_latest': `http://${HOST}:${PORT}/chapter/get_latest`,
         'get_chapter_details': `http://${HOST}:${PORT}/chapter/get_chapter_detail?chapterId=`,
+        'get_next_chapter': `http://${HOST}:${PORT}/chapter/get_next?chapterId={chapterId}&mangaProviderId={mangaProviderId}`,
     }
 }

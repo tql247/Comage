@@ -7,14 +7,14 @@ const {height, width} = Dimensions.get("window");
 const imageWidth = width - 5;
 
 interface Props {
-    params: any;
+    chapter: any;
 }
 
 export class ChapterContent extends Component<Props> {
-
     state = {
         index: 0,
         screenHeight: 0,
+        chapterId: this.props.chapter.chapterId,
         item: [
             {
                 indexer: '1',
@@ -51,7 +51,7 @@ export class ChapterContent extends Component<Props> {
 
         const config = {
             method: 'get',
-            url: APIConfig['api']['get_chapter_details'] + this.props.params.chapterId,
+            url: APIConfig['api']['get_chapter_details'] + this.state.chapterId,
             headers: {}
         };
 
@@ -64,17 +64,20 @@ export class ChapterContent extends Component<Props> {
             .catch(function (error: any) {
                 console.log(error);
             });
-
     }
 
-
     componentDidMount() {
+        console.log('aàd')
+        console.log('aàd')
+        console.log('aàd')
         this._getChapterContent();
+
     }
 
     render() {
         return (
             <View>
+                <View>{this.state.chapterId}</View>
                 {this.state.item.map((item) => (
                     <View style={styles.container}>
                         <Image

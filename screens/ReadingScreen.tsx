@@ -5,17 +5,19 @@ import { Text, View } from '../components/Themed';
 import {ChapterContent} from "../components/ChapterContent";
 import {Icon} from 'react-native-elements';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {useEffect, useState} from "react";
+import {APIConfig} from "../config";
+import {ChapterBottomNav} from "../components/ChapterBottomNav";
 
 const {height} = Dimensions.get("window");
 
 export default function ReadingScreen({props, navigation, route} : any) {
     const insets = useSafeAreaInsets();
-
-    const chapter = {
-        chapIndex: route.params.chapterId,
+    const [chapter, setChapter] = useState({
+        chapterId: route.params.chapterId,
         chapterName: route.params.chapterName,
         updatedAt: route.params.updatedAt
-    }
+    });
 
     return (
         <View  style={{ position: "relative", flex: 1, paddingTop: insets.top}}>
@@ -31,26 +33,17 @@ export default function ReadingScreen({props, navigation, route} : any) {
                 </View>
             </View>
             <View style={{marginTop: 47, height: height - 80, backgroundColor: "#ccc"}}>
+                {chapter.chapterId}
                 <FlatList
+                    extraData={chapter}
                     style={styles.scrollView}
                     data={[1]}
                     renderItem={({item}) => (
-                        <ChapterContent {...props} params={route.params} />
+                        <ChapterContent chapter={chapter} />
                     ) }
                 />
             </View>
-            <View style={[styles.fab]}>
-                <View style={styles.fabItem}>
-                    <Icon size={27} color={"#666666"} name={"arrow-back"} type={"ionicon"} />
-                </View>
-                <View style={styles.fabItem}>
-                    <Icon size={27} color={"#666666"} name={"arrow-forward"} type={"ionicon"} />
-                </View>
-                <View style={styles.fabItem}>
-                    <Icon size={27} color={"#666666"} name={"comment-outline"} type={"material-community"} />
-                    <Text style={styles.fabItemText}>30</Text>
-                </View>
-            </View>
+            <ChapterBottomNav setChapter={setChapter} chapterId={route.params.chapterId} mangaProviderId={route.params.mangaProviderId}/>
         </View>
     );
 }

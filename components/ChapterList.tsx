@@ -79,6 +79,7 @@ export class ChapterList extends Component<Props> {
                             onPress={() => (this.props.navigation.navigate("ReadingScreen",
                                 {
                                     chapterId: item.chapterId,
+                                    mangaProviderId: this.props.params.mangaProviderId,
                                     chapterName: item.chapterName,
                                     updatedAt: item.updatedAt
                                 }
