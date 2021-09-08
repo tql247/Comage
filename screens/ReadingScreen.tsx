@@ -1,25 +1,21 @@
 import * as React from 'react';
-import {Dimensions, FlatList, Image, ScrollView, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet} from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import {ChapterContent} from "../components/ChapterContent";
 import {Icon} from 'react-native-elements';
-import { FAB } from 'react-native-elements';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const {height} = Dimensions.get("window");
 
 export default function ReadingScreen({props, navigation, route} : any) {
-    const state = {
-        chapter: {
-            chapIndex: "31",
-            chapName: "Parallel Thinking191",
-            updatedAt: "Mar 19,21"
-        }
-    };
-
     const insets = useSafeAreaInsets();
+
+    const chapter = {
+        chapIndex: route.params.chapterId,
+        chapterName: route.params.chapterName,
+        updatedAt: route.params.updatedAt
+    }
 
     return (
         <View  style={{ position: "relative", flex: 1, paddingTop: insets.top}}>
@@ -29,15 +25,12 @@ export default function ReadingScreen({props, navigation, route} : any) {
                 </View>
                 <View style={{marginHorizontal: 10}}>
                     <Text style={styles.chapterTitle}>
-                        Chapter {state.chapter.chapIndex}: {state.chapter.chapName.slice(0, 30) + (state.chapter.chapName.length > 30?"...":"")}
+                        {chapter.chapterName.slice(0, 30) + (chapter.chapterName.length > 30?"...":"")}
                     </Text>
-                    <Text style={{color: "#666666", fontStyle: "italic"}}>{state.chapter.updatedAt}</Text>
+                    <Text style={{color: "#666666", fontStyle: "italic"}}>{chapter.updatedAt}</Text>
                 </View>
             </View>
             <View style={{marginTop: 47, height: height - 80, backgroundColor: "#ccc"}}>
-                {/*<View style={{flex: 1}}>*/}
-                {/*    <View style={{flex: 1}}>*/}
-
                 <FlatList
                     style={styles.scrollView}
                     data={[1]}
@@ -45,9 +38,6 @@ export default function ReadingScreen({props, navigation, route} : any) {
                         <ChapterContent {...props} params={route.params} />
                     ) }
                 />
-                {/*    </View>*/}
-                {/*</View>*/}
-
             </View>
             <View style={[styles.fab]}>
                 <View style={styles.fabItem}>

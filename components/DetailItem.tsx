@@ -42,11 +42,16 @@ export class DetailItem extends Component<Props> {
             description: data.description,
             author: data.author_s,
             imageCover: data.image_cover_uri,
-            lastUpdate: data.updated_at || data.create_at,
+            lastUpdate: data.updated_at || data.created_at,
             tag: data.tags.split('#')
         }
 
-        this.setState({item: manga})
+        this.setState({item: manga});
+
+        Image.getSize(this.state.item.imageCover, (imgWidth, imgHeight) => {
+            const newHeight = (width/3)* imgHeight/imgWidth
+            this.setState({item: {...this.state.item, ...{height: newHeight}}})
+        })
     }
 
     _getMangaInfo() {
@@ -54,7 +59,7 @@ export class DetailItem extends Component<Props> {
 
         const config = {
             method: 'get',
-            url: APIConfig['api']['get_manga_info'] + this.props.params.mangaId,
+            url: APIConfig['api']['get_manga_info'] + this.props.params.mangaProviderId,
             headers: {}
         };
 
@@ -73,11 +78,6 @@ export class DetailItem extends Component<Props> {
 
     componentDidMount() {
         this._getMangaInfo();
-
-        Image.getSize(this.state.item.imageCover, (imgWidth, imgHeight) => {
-            const newHeight = (width/3)* imgHeight/imgWidth
-            this.setState({item: {...this.state.item, ...{height: newHeight}}})
-        })
     }
 
 

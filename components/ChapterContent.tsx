@@ -22,78 +22,6 @@ export class ChapterContent extends Component<Props> {
                 width: 0,
                 height: 0,
             },
-            {
-                indexer: '2',
-                imageURI: 'https://i.imgur.com/N216PDc.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '3',
-                imageURI: 'https://i.imgur.com/anvV0da.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '4',
-                imageURI: 'https://i.imgur.com/y94XNq3.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '5',
-                imageURI: 'https://i.imgur.com/ngSrPrL.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '6',
-                imageURI: 'https://i.imgur.com/3MzLXWU.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '7',
-                imageURI: 'https://i.imgur.com/ookQTQP.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '8',
-                imageURI: 'https://i.imgur.com/qLJEVGn.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '9',
-                imageURI: 'https://i.imgur.com/rKeYKFa.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '10',
-                imageURI: 'https://i.imgur.com/j4OZiwF.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '11',
-                imageURI: 'https://i.imgur.com/5KrhTSX.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '12',
-                imageURI: 'https://i.imgur.com/VGfflZa.jpg',
-                width: 0,
-                height: 0,
-            },
-            {
-                indexer: '13',
-                imageURI: 'https://i.imgur.com/kFcPxop.jpg',
-                width: 0,
-                height: 0,
-            },
         ]
     };
 
@@ -108,16 +36,22 @@ export class ChapterContent extends Component<Props> {
         })
 
         this.setState({item: newItems});
+
+        this.state.item.map((item, idx: number) => {
+            Image.getSize(item.imageURI, (width, height) => {
+                this.state.item[idx].width = width;
+                this.state.item[idx].height = height;
+                this.setState({item: this.state.item})
+            })
+        })
     }
 
     _getChapterContent() {
         const axios = require('axios');
-        console.log('chapter ID')
-        console.log(this.props.params.chapterId)
 
         const config = {
             method: 'get',
-            url: APIConfig['api']['get_chapter_details'],
+            url: APIConfig['api']['get_chapter_details'] + this.props.params.chapterId,
             headers: {}
         };
 
@@ -135,20 +69,10 @@ export class ChapterContent extends Component<Props> {
 
 
     componentDidMount() {
-        // this._getChapterContent();
-
-        // resize image to fit screen
-        this.state.item.map((item, idx: number) => {
-            Image.getSize(item.imageURI, (width, height) => {
-                this.state.item[idx].width = width;
-                this.state.item[idx].height = height;
-                this.setState({item: this.state.item})
-            })
-        })
+        this._getChapterContent();
     }
 
     render() {
-
         return (
             <View>
                 {this.state.item.map((item) => (

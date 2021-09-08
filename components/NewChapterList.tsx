@@ -90,6 +90,7 @@ export class NewChapterList extends Component<Props>  {
             {
                 title: 'Blue Period',
                 newChapter: 'Chap 72: ブルーピリオド',
+                mangaProviderId: "",
                 forwardScreen: "",
                 lastUpdate: "1 day ago",
             }
@@ -103,12 +104,14 @@ export class NewChapterList extends Component<Props>  {
                 title: row["manga_name"],
                 newChapter: row["chapter_name"],
                 lastUpdate: row["updated_at"] || row["create_at"],
+                mangaProviderId: row["manga_provider_id"],
                 forwardScreen: "",
-                mangaId: row["manga_id"],
             }
 
             newItems.push(item)
         }
+        console.log('newItems')
+        console.log(newItems)
 
         this.setState({items: newItems})
     }
@@ -178,7 +181,7 @@ export class NewChapterList extends Component<Props>  {
                                         item.forwardScreen || "ComicDetailScreen",
                                         {
                                             subject: "Got Movie/Anime",
-                                            mangaId: item.mangaId,
+                                            mangaProviderId: item.mangaProviderId,
                                             mangaTitle: item.title
                                         }
                                     ))}
