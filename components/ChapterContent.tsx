@@ -80,7 +80,7 @@ export class ChapterContent extends Component<Props> {
         return (
             <View>
                 {this.state.item.map((item) => (
-                    <View style={styles.container}>
+                    <View key={item.indexer} style={styles.container}>
                         <Image
                             style={[styles.image, {height: imageWidth*item.height/item.width}]}
                             resizeMode="cover"

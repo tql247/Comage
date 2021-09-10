@@ -103,7 +103,7 @@ export class DetailItem extends Component<Props> {
                                 <View style={styles.tagContainer}>
                                     {this.state.item.tag.map((item, index) => {
                                         return (
-                                            <Text style={styles.tag}>#{item}</Text>
+                                            <Text key={index} style={styles.tag}>#{item}</Text>
                                         )
                                     })}
                                 </View>
