@@ -20,7 +20,7 @@ export default function ReadingScreen({props, navigation, route} : any) {
     });
 
     return (
-        <View  style={{ position: "relative", flex: 1, paddingTop: insets.top}}>
+        <View  style={{ position: "relative", flex: 1, marginTop: insets.top}}>
             <View style={[styles.topFab, {top: insets.top}]}>
                 <View style={styles.fabItem}>
                     <Icon onPress={() => (navigation.goBack())} size={30} color={"#666666"} name={"chevron-back"} type={"ionicon"} />

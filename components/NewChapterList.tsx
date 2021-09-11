@@ -145,14 +145,14 @@ export class NewChapterList extends Component<Props>  {
 
         return (
             <View style={{backgroundColor: itemIndex%2===0?"rgba(225,225,225,0.45)":"transparent", padding: 5}}>
-                <Text style={styles.title}>
+                <Text style={styles.title} numberOfLines={1}>
                     {name.slice(0, 50) + (name.length>50?"...":"")}
                 </Text>
                 <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                    <Text style={styles.chapter}>
-                        {chapter.slice(0, 30) + (chapter.length>30?"...":"")}
+                    <Text style={styles.chapter}  numberOfLines={1}>
+                        {chapter}
                     </Text>
-                    <Text style={styles.chapter}>
+                    <Text style={styles.time} numberOfLines={1}>
                         {time}
                     </Text>
                 </View>
@@ -208,6 +208,12 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
     },
     chapter: {
+        color: "#767676",
+        fontWeight: "400",
+        flexWrap: "wrap",
+        marginRight: 3
+    },
+    time: {
         color: "#767676",
         fontWeight: "400",
         flexWrap: "wrap",
