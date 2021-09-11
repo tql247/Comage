@@ -23,7 +23,8 @@ export class ItemListing extends Component<Props> {
                 imageCover: '',
                 lastUpdate: "",
                 isFollowing: false,
-                tag: []
+                tag: [],
+                mangaProviderId: undefined
             },
         ]
     };
@@ -52,7 +53,8 @@ export class ItemListing extends Component<Props> {
                         subtitle: manga.description,
                         imageCover: manga.image_cover_thumbnail_uri,
                         lastUpdate: manga.updated_at || manga.created_at,
-                        tag: manga.tags.split("#")
+                        tag: manga.tags.split("#"),
+                        mangaProviderId: manga.manga_provider_id
                     }))
                 })
             })
@@ -77,7 +79,14 @@ export class ItemListing extends Component<Props> {
                     renderItem={({item}) => (
                             <View style={styles.itemContainer}>
                                 <TouchableOpacity
-                                    onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
+                                    onPress={() => (this.props.navigation.navigate(
+                                        "ComicDetailScreen",
+                                        {
+                                            subject: "Got Movie/Anime",
+                                            mangaProviderId: item.mangaProviderId,
+                                            mangaTitle: item.title
+                                        }
+                                    ))}
                                 >
                                 <Image
                                     style={styles.image}

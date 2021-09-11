@@ -149,10 +149,10 @@ export class NewChapterList extends Component<Props>  {
                     {name.slice(0, 50) + (name.length>50?"...":"")}
                 </Text>
                 <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                    <Text style={styles.chapter}  numberOfLines={1}>
+                    <Text style={styles.chapter}>
                         {chapter}
                     </Text>
-                    <Text style={styles.time} numberOfLines={1}>
+                    <Text style={styles.time}>
                         {time}
                     </Text>
                 </View>
@@ -180,7 +180,6 @@ export class NewChapterList extends Component<Props>  {
                                 onPress={() => (this.props.navigation.navigate(
                                         item.forwardScreen || "ComicDetailScreen",
                                         {
-                                            subject: "Got Movie/Anime",
                                             mangaProviderId: item.mangaProviderId,
                                             mangaTitle: item.title
                                         }
