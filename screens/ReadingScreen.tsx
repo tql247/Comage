@@ -20,44 +20,33 @@ export default function ReadingScreen({props, navigation, route} : any) {
     });
 
     return (
-        <View  style={{ position: "relative", flex: 1, marginTop: insets.top, backgroundColor: "rgba(255,255,255,0)"}}>
-            <View style={[styles.topFab]}>
-                <View style={styles.fabItem}>
-                    <Icon onPress={() => (navigation.goBack())} size={30} color={"#666666"} name={"chevron-back"} type={"ionicon"} />
+        <View  style={{ position: "relative", flex: 1, marginTop: insets.top, marginBottom: insets.bottom, backgroundColor: "rgba(255,255,255,0)"}}>
+            <View style={{height: height - insets.top - insets.bottom, backgroundColor: "#ccc"}}>
+                <View style={[styles.topFab]}>
+                    <View style={styles.fabItem}>
+                        <Icon onPress={() => (navigation.goBack())} size={30} color={"#666666"} name={"chevron-back"} type={"ionicon"} />
+                    </View>
+                    <View style={{marginHorizontal: 10}}>
+                        <Text style={styles.chapterTitle}>
+                            {chapter.chapterName.slice(0, 30) + (chapter.chapterName.length > 30?"...":"")}
+                        </Text>
+                        <Text style={{color: "#666666", fontStyle: "italic"}}>{chapter.updatedAt}</Text>
+                    </View>
                 </View>
-                <View style={{marginHorizontal: 10}}>
-                    <Text style={styles.chapterTitle}>
-                        {chapter.chapterName.slice(0, 30) + (chapter.chapterName.length > 30?"...":"")}
-                    </Text>
-                    <Text style={{color: "#666666", fontStyle: "italic"}}>{chapter.updatedAt}</Text>
-                </View>
-            </View>
-            <View style={{marginTop: 47, height: height - 80, backgroundColor: "#ccc"}}>
                 <FlatList
                     extraData={chapter}
-                    style={styles.scrollView}
                     data={[1]}
                     renderItem={({item}) => (
                         <ChapterContent key={chapter.chapterId} chapter={chapter} />
                     ) }
                 />
+                <ChapterBottomNav setChapter={setChapter} chapterId={route.params.chapterId} mangaProviderId={route.params.mangaProviderId}/>
             </View>
-            <ChapterBottomNav setChapter={setChapter} chapterId={route.params.chapterId} mangaProviderId={route.params.mangaProviderId}/>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
-        borderWidth: 0,
-        borderColor: "transparent",
-        shadowColor: 'transparent',
-    },
-    container: {
-        borderWidth: 0,
-        borderColor: "transparent",
-        shadowColor: 'transparent',
-    },
     chapterTitle: {
         fontSize: 20,
         color: "#464846",
@@ -65,14 +54,11 @@ const styles = StyleSheet.create({
     },
     topFab: {
         borderTopColor: "#666666",
-        position: 'absolute',
-        left: 0,
         color: "#666666",
         flexDirection: "row",
         width: "100%",
-        flex: 1,
-        flexGrow: 1,
-        zIndex: 10000,
+        paddingBottom: 3,
+        zIndex: 100,
         backgroundColor: "white"
     },
     fab: {

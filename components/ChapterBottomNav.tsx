@@ -117,32 +117,30 @@ export class ChapterBottomNav extends Component<Props> {
 
     render() {
         return (
-            <View style={[styles.fabContainer]}>
-                <View style={[styles.fab]}>
-                    <View style={styles.fabItem}>
-                        <Icon
-                            onPress={this._onclickBackChapter}
-                            disabled={!this.state.backChapter}
-                            disabledStyle={{backgroundColor: 'transparent'}}
-                            size={27}
-                            color={this.state.backChapter?"#666666":"rgba(102,102,102,0.25)"}
-                            name={"arrow-back"}
-                            type={"ionicon"} />
-                    </View>
-                    <View style={styles.fabItem}>
-                        <Icon
-                            onPress={this._onclickNextChapter}
-                            disabled={!this.state.nextChapter}
-                            disabledStyle={{backgroundColor: 'transparent'}}
-                            size={27}
-                            color={this.state.nextChapter?"#666666":"rgba(102,102,102,0.25)"}
-                            name={"arrow-forward"}
-                            type={"ionicon"} />
-                    </View>
-                    <View style={styles.fabItem}>
-                        <Icon size={27} color={"#666666"} name={"comment-outline"} type={"material-community"} />
-                        <Text style={styles.fabItemText}>20</Text>
-                    </View>
+            <View style={[styles.fab]}>
+                <View style={styles.fabItem}>
+                    <Icon
+                        onPress={this._onclickBackChapter}
+                        disabled={!this.state.backChapter}
+                        disabledStyle={{backgroundColor: 'transparent'}}
+                        size={27}
+                        color={this.state.backChapter?"#666666":"rgba(102,102,102,0.25)"}
+                        name={"arrow-back"}
+                        type={"ionicon"} />
+                </View>
+                <View style={styles.fabItem}>
+                    <Icon
+                        onPress={this._onclickNextChapter}
+                        disabled={!this.state.nextChapter}
+                        disabledStyle={{backgroundColor: 'transparent'}}
+                        size={27}
+                        color={this.state.nextChapter?"#666666":"rgba(102,102,102,0.25)"}
+                        name={"arrow-forward"}
+                        type={"ionicon"} />
+                </View>
+                <View style={styles.fabItem}>
+                    <Icon size={27} color={"#666666"} name={"comment-outline"} type={"material-community"} />
+                    <Text style={styles.fabItemText}>20</Text>
                 </View>
             </View>
         );
@@ -151,21 +149,17 @@ export class ChapterBottomNav extends Component<Props> {
 
 
 const styles = StyleSheet.create({
-    fabContainer: {
-        paddingVertical: 7,
-        alignItems: "center",
-        position: 'absolute',
-        left: 0,
-        bottom: 0,
-        color: "#666666",
-        zIndex: 1000,
-        width: "100%",
-        backgroundColor: "white",
-    },
     fab: {
         justifyContent: "space-around",
         flexDirection: "row",
         width: "100%",
+        borderTopColor: "#666666",
+        color: "#666666",
+        zIndex: 100,
+        backgroundColor: "white",
+        alignItems: "center",
+        paddingTop: 7,
+        paddingBottom: 5
     },
     fabItem: {
         alignItems: "center",
