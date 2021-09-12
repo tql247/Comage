@@ -96,7 +96,14 @@ export class ItemListing extends Component<Props> {
                                 </TouchableOpacity>
                                 <View style={styles.content}>
                                     <TouchableOpacity
-                                        onPress={() => (this.props.navigation.navigate("ComicDetailScreen"))}
+                                        onPress={() => (this.props.navigation.navigate(
+                                            "ComicDetailScreen",
+                                            {
+                                                subject: "Got Movie/Anime",
+                                                mangaProviderId: item.mangaProviderId,
+                                                mangaTitle: item.title
+                                            }
+                                        ))}
                                     >
                                         <Text style={styles.title}>{item.title}</Text>
                                     </TouchableOpacity>

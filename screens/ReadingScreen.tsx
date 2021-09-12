@@ -57,25 +57,15 @@ const styles = StyleSheet.create({
         color: "#666666",
         flexDirection: "row",
         width: "100%",
+        paddingTop: 3,
         paddingBottom: 3,
         zIndex: 100,
-        backgroundColor: "white"
-    },
-    fab: {
-        paddingVertical: 5,
-        position: 'absolute',
-        left: 0,
-        bottom: 0,
-        color: "#666666",
-        justifyContent: "space-around",
-        flexDirection: "row",
-        width: "100%",
-        zIndex: 10000,
+        backgroundColor: "white",
+        alignItems: "center"
     },
     fabItem: {
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "row",
     },
     fabItemText: {
         fontSize: 20,
